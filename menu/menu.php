@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="menu.css">
 </head>
 <body>
-    <div id="header">
-        <h1>Menu</h1>
-    </div>
+    <header id="header">
+        <h1>Menu Makanan</h1>
+    </header>
 
     <div id="content">
     <?php
@@ -17,15 +17,15 @@
          $result = mysqli_query($db, $sql);
          while ($row=mysqli_fetch_array($result)) {
            echo "<div id='img_div'>";
-            echo "<img src='images/".$row['image']."'>";
+            echo "<img id='list-menu'src='images/".$row['image']."'>";
             echo "<p id='name' >".$row['description']."</p>";
             echo "<p id='price'> Harga Rp.<strong>".$row['price'].",-</strong></p>";
            echo "</div>";
          }
 
     ?>
-</div>
-</body>
+    </div>
+    </body>
 </html>
 
  
