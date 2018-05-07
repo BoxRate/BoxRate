@@ -1,77 +1,102 @@
+/*body makanan*/
 body{
-   background: url("menu2.gif");
+   background: url("background/menu2.gif");
 }
 
+/*body minuman*/
+#body-minuman{
+   background: url("background/minuman.jpg");
+}
+
+/*header makanan minuman*/
 #header{
    margin: 0px auto;
    color: #ffffff;
    width: 70%;
    text-align: center;
    font-family:  sans-serif;
-   font-size: 30px;
+   font-size: 25px;
    font-style: italic;
-   background-color: rgba( 43, 12, 12, 0.8 );
-   border: 1px solid #ffffff;
+   background:linear-gradient(to right,#e23a3a,#5165e0);
+   border: 4px solid #f17171;
 }
 
+/*keterangan nama makanan*/
 #name{
+   border-radius: 10px;
    margin-left:320px;
    margin-right: 20px;
    text-align: center;
    text-transform: uppercase;
-   border: 4px solid #959595;
-   background-color: #d3d5cc;
+   border: 4px solid #58ce2f;
+   background-color: #ffffff;
    font-family: "Times New Roman", Times, serif;
    font-weight: bold;
    font-size: 30px; 
+   color: #000000;
 }
 
+/*masukan nama dan harga makanan*/
 #input-name {
    margin-top: 10px;
    margin-left:100px;
    width: 400px;
    text-align: center;
    text-transform: uppercase;
-   border: 4px solid #959595;
-   background-color: #d3d5cc;
+   border: 4px solid #f17171;
+   background-color: #ffffff;
    font-family: "Times New Roman", Times, serif;
    font-weight: bold;
    font-size: 20px; 
 
 }
 
+#input-name:hover {
+   border: 4px solid #58ce2f;
+}
+
+/*tombol upload*/
 #submit {
+   border-radius: 10px;
    float: right;
    margin-top: 10px;
    margin-right: 20px; 
    border: 2px solid #ffffff;
    height: 30px;
+   cursor: pointer;
 }
 
 #submit:hover {
    background-color: #3492da;
 }
 
+/*tampilan harga menu*/
 #price {
-   color: #ffffff;
+   color: #000000;
    margin-left: 320px;
    margin-right: 20px; 
    font-size: 25px;
    font-family: sans-serif;
+   font-style: italic;
 }
 
+/*border luar*/
 #content{
 	width: 70%;
 	margin:0px auto;
-	border: 1px solid #ffffff;
-   background-color:rgba( 43, 12, 12, 0.8 );
+	border: 4px solid #ffffff;
+   background-color:rgba( 160, 160, 160, 0.485 );
 }
+
+
 #form{
 	width: 80%;
    height: 165px;
    padding: 5px;
 	margin: 20px auto;
    border: 4px solid #ffffff;
+   border-radius: 10px;
+   background-color: #47abdf;
 }
 #form div{
 	margin-top: 5px;
@@ -81,12 +106,15 @@ body{
 	padding: 5px;
 	margin: 15px auto;
 	border: 4px solid #ffffff;
+   border-radius: 10px;
+   background: linear-gradient(to right,#e23a3a,#99a6f4);
 }
 #img_div:after{
 	content: "";
 	display: block;
 	clear: both;
 }
+
 #list-menu{
 	float: left;
 	margin: 5px;
@@ -94,6 +122,7 @@ body{
 	height: 200px;
 }
 
+/*icon gambar input file*/
 #icon {
    position: relative;
    float: left;
@@ -102,28 +131,56 @@ body{
    border: 1px solid #ffffff;
    padding: 10px;
    background: #ffffff;
+   cursor: copy;
 
 }
 
+/*fungsi input file*/
 #file-input {
    background: #ffffff;
    color: #000000;
    margin-left: -107px;
 }
+
+/*tombol delete sebenarnya*/
  #delete {
    display:none;
  }
 
+/*gambar tombol tong sampah*/
  #img-delete {
+   position: fixed;
+   top: 40%;
+   left: 80%;
    margin-right: 20px;
    float: right;
    width: 50px;
    height: 50px;
+   cursor: pointer;
  }
 
+
+/*checlist yang ada pada menu*/
  #check {
    float: right;
-   width: 30px;
-   height:30px;
+   margin-top: 5px; 
+   width: 25px;
+   height:25px;
    
+ }
+
+ /*check box semua*/
+ #select-all{
+   position: fixed;
+   top: 50%;
+   left: 79%;
+   border: 3px solid #e54040;
+   background-color: #e54040;
+   border-radius: 5px;
+ }
+
+ #select-all:hover {
+   background-color: #3492da;
+   border: 3px solid #3492da;
+   cursor: pointer;
  }
