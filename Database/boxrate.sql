@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2018 at 12:18 PM
+-- Generation Time: May 08, 2018 at 02:54 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -56,17 +56,22 @@ CREATE TABLE `menu` (
   `id` int(11) NOT NULL,
   `image` varchar(200) NOT NULL,
   `price` int(11) NOT NULL,
-  `description` text NOT NULL
+  `name` text NOT NULL,
+  `ket` varchar(200) NOT NULL,
+  `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `image`, `price`, `description`) VALUES
-(23, 'kuliner_20170729_171051.jpg', 15000, 'Nasi Goreng'),
-(24, 'kuliner-nusantara_20170108_100809.jpg', 20000, 'Nasi Uduk'),
-(25, 'tumpeng-minijpg-Pj13.jpg', 25000, 'Tumpeng');
+INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `description`) VALUES
+(30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 'pake Ayam'),
+(32, 'b81206e87f.jpg', 10000, 'aneka', 'minuman', ''),
+(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', ''),
+(36, 'c201179c12.jpg', 100000, 'Tumpeng', 'makanan', ''),
+(40, '8036ec9ca6.jpg', 20000, 'Tumpeng', 'makanan', 'gk pake ayam\r\n'),
+(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', '');
 
 --
 -- Indexes for dumped tables
@@ -94,7 +99,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
