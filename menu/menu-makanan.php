@@ -117,7 +117,7 @@
                     <a href='#'>".$row['name']."</a>
                   </h4>
                   <h5>Rp. ".$row['price']."</h5>
-                  <p class='card-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                  <p class='card-text'>".$row['description']."</p>
                 </div>
                 <div class='card-footer'>
                   <small class='text-muted'>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
