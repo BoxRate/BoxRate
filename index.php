@@ -46,7 +46,13 @@
       <div class="container">
         <a class="navbar-brand" href="#">
           <img id='image-logo' src="images/logo/BoxRate.png">
-        BoxRate</a>
+        BoxRate :<?php if (isset($_SESSION["name"])): ?>
+                  <?php  echo $_SESSION['name'];?>
+                   <?php endif ?>
+
+                <?php if (isset($_SESSION["username"]) and $_SESSION['name']==NULL): ?>
+                  <?php  echo $_SESSION['username'];?>
+                   <?php endif ?> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,6 +71,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" href="index.php?logout='1'">Logout</a>
             </li>
           </ul>
         </div>
