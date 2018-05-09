@@ -65,8 +65,8 @@
 
           <h1 class="my-4">Rating</h1>
           <div class="list-group">
-            <a href="menu-makanan.php" class="list-group-item">&#x27a4;&nbsp; Makanan</a>
-            <a href="#" class="list-group-item">&emsp;&nbsp; Minuman</a>
+            <a href="rating-makanan.php" class="list-group-item">&#x27a4;&nbsp; Makanan</a>
+            <a href="rating-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
           </div>
 
         </div>
