@@ -57,7 +57,7 @@
 
         <div class="col-lg-3">
 
-          <h1 class="my-4">Menu</h1>
+          <h1 class="my-4">Rating</h1>
           <div class="list-group">
             <a href="#" class="list-group-item">Makanan</a>
             <a href="#" class="list-group-item">Minuman</a>
