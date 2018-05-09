@@ -2,7 +2,7 @@
 	$dbhost="localhost";
 	$dbuser="root";
 	$dbpass="";
-	$dbname="rpl";
+	$dbname="boxrate";
 	$link=mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 	
 	if(!$link){
