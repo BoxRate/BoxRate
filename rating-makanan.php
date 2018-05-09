@@ -16,6 +16,9 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="css/shop-homepage.css">
 
+    <!-- Star Rating-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   </head>
 
   <body >
@@ -57,18 +60,10 @@
 
         <div class="col-lg-3">
 
-          <h1 class="my-4">Menu</h1>
+          <h1 class="my-4">Rating</h1>
           <div class="list-group">
-            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
-            <a href="#" class="list-group-item">&#x27a4; Minuman</a>
-            <div class="dropdown">
-            <a href="#" class="list-group-item dropdown-toggle" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
-            <ul class="dropdown-menu">
-              <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp;Edit Makanan</a></li>
-              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Edit Minuman</a></li>
-            </ul>
-          </div>
-
+            <a href="menu-makanan.php" class="list-group-item">&#x27a4;&nbsp; Makanan</a>
+            <a href="#" class="list-group-item">&emsp;&nbsp; Minuman</a>
           </div>
 
         </div>
@@ -76,43 +71,17 @@
 
         <div class="col-lg-9">
 
-          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img id="image-promo" class="d-block img-fluid" src="images/diskon/minuman-01.jpg" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img id="image-promo" class="d-block img-fluid" src="images/diskon/minuman-02.jpg" alt="Second slide">
-              </div>
-              <div id="image-promo" class="carousel-item">
-                <img class="d-block img-fluid" src="images/diskon/minuman-03.jpg" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
 
           <div class="row">
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='minuman'";
+           $sql= "SELECT * FROM menu WHERE ket='makanan' order by rating DESC";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
-            echo "<div class='col-lg-4 col-md-6 mb-4'>
+            echo "<div class='col-md-6 mb-4'>
               <div class='card h-100'>
-                <a href='#'><img id='image-menu' class='card-img-top' src='images/minuman/".$row['image']."' alt=''></a>
+                <a href='#'><img id='image-rating' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
                 <div class='card-body'>
                   <h4 class='card-title'>
                     <a href='#'>".$row['name']."</a>
@@ -121,8 +90,44 @@
                   <p class='card-text'>".$row['description']."</p>
                 </div>
                 <div class='card-footer'>
-                  <small class='text-muted'>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
+                <small class='text-muted'>";
+                if ($row['rating']>80) {
+                  echo "<span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>";
+                }
+                elseif ($row['rating']>60) {
+                  echo "<span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star'></span>";
+                }
+                elseif($row['rating']>40) {
+                  echo "<span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>";
+                }
+                elseif($row['rating']>20) {
+                  echo "<span class='fa fa-star checked'></span>
+                  <span class='fa fa-star checked'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>";
+                }
+                elseif($row['rating']>0) {
+                  echo "<span class='fa fa-star checked'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>";
+                }
+             
+              echo "</small></div>
               </div>
             </div>";
           }
