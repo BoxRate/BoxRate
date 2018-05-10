@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2018 at 02:54 PM
+-- Generation Time: May 10, 2018 at 04:28 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -32,19 +32,18 @@ CREATE TABLE `akun` (
   `username` varchar(30) NOT NULL,
   `name` text NOT NULL,
   `password` text NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `alamat` text NOT NULL,
-  `no_hp` varchar(14) NOT NULL
+  `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `akun`
 --
 
-INSERT INTO `akun` (`username`, `name`, `password`, `email`, `alamat`, `no_hp`) VALUES
-('h1', 'name', '33112ee14ee469c3eb52fe90322ec81dd404a0093d565a6d71ce77cbc8124e3b', 'h1@gamul.com', 'h1', '081231313131'),
-('h2', '', 'f998fe06afa0cfbe73e0449dc2b1698309e1b5714960f027b2858312b152c275', 'h2@gmail.com', 'h2', '081234563456'),
-('h3', '', '97fb5f8538b89f6c1accfd19836b65a73b61fbc2e0cbf84bb858a0fffa3f1592', 'h3@gmail.com', 'h3', '081343214312');
+INSERT INTO `akun` (`username`, `name`, `password`, `email`) VALUES
+('Andika', '', '7e51eea5fa101ed4dade9ad3a7a072bb', 'apratama@gmail.com'),
+('Andika2', 'Andika Pratama', '7e51eea5fa101ed4dade9ad3a7a072bb', 'a@mail.com'),
+('andika7', 'andika pratama', '7e51eea5fa101ed4dade9ad3a7a072bb', 'apratama9@gmail.com'),
+('siti', 'siti alifah', 'db04eb4b07e0aaf8d1d477ae342bdff9', 'siti@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -58,20 +57,20 @@ CREATE TABLE `menu` (
   `price` int(11) NOT NULL,
   `name` text NOT NULL,
   `ket` varchar(200) NOT NULL,
-  `description` varchar(200) NOT NULL
+  `description` varchar(200) NOT NULL,
+  `rating` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `description`) VALUES
-(30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 'pake Ayam'),
-(32, 'b81206e87f.jpg', 10000, 'aneka', 'minuman', ''),
-(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', ''),
-(36, 'c201179c12.jpg', 100000, 'Tumpeng', 'makanan', ''),
-(40, '8036ec9ca6.jpg', 20000, 'Tumpeng', 'makanan', 'gk pake ayam\r\n'),
-(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', '');
+INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `description`, `rating`) VALUES
+(30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 'pake Ayam', 60),
+(32, 'b81206e87f.jpg', 10000, 'aneka', 'minuman', '', 70),
+(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', '', 93),
+(40, '8036ec9ca6.jpg', 20000, 'Tumpeng', 'makanan', 'gk pake ayam\r\n', 76),
+(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', '', 79);
 
 --
 -- Indexes for dumped tables
@@ -82,8 +81,7 @@ INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `description`) VALUES
 --
 ALTER TABLE `akun`
   ADD PRIMARY KEY (`username`),
-  ADD UNIQUE KEY `email_1` (`email`),
-  ADD UNIQUE KEY `email_nomor_hp` (`no_hp`);
+  ADD UNIQUE KEY `email_1` (`email`);
 
 --
 -- Indexes for table `menu`
