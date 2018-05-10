@@ -26,7 +26,7 @@ File: Layout CSS
 #header{}
 
 #header #logo{margin:30px 0 0 0;}
-#header #logo h1{margin:0; padding:0; font-size:22px;}
+
 
 
 /* Page Intro
@@ -238,7 +238,7 @@ td{border-width:0 1px;}
 .faico li:last-child{margin-right:0;}
 .faico a{display:inline-block; width:36px; height:36px; line-height:36px; font-size:18px; text-align:center;}
 
-.faico a{color:#FFFFFF; background-color:#FFAA31;}
+.faico a{color:#FFFFFF; background-color:#17a2b8;}
 .faico a:hover{}
 
 .faicon-dribble:hover{background-color:#EA4C89;}
@@ -259,7 +259,7 @@ td{border-width:0 1px;}
 /* Colours
 --------------------------------------------------------------------------------------------------------------- */
 body{color:#CBCBCB; background-color:#1A1A1A;}
-a{color:#FFAA31;}
+a{color:#17a2b8;}
 a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
 hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
@@ -267,7 +267,7 @@ input:focus, textarea:focus, *:required:focus{border-color:#56AED4;}
 .overlay{color:#FFFFFF; background-color:inherit;}
 .overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
 
-.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#FFAA31; border-color:#FFAA31;}
+.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#17a2b8; border-color:#17a2b8;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
 
 .icon{color:inherit; border-color:inherit;}
@@ -306,7 +306,7 @@ a .icon:hover, article:hover a .icon{color:#FFFFFF; background-color:#FFAA31;}
 #footer input, #footer button{border-color:transparent;}
 #footer input{color:#FFFFFF; background-color:#1A1A1A;}
 #footer input:focus{border-color:#FFAA31;}
-#footer button{color:#FFFFFF; background-color:#FFAA31;}
+#footer button{color:#FFFFFF; background-color:#17a2b8;}
 
 
 /* Navigation */
