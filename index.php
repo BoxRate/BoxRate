@@ -159,7 +159,7 @@
         </div>
          <div class="col-lg-4 mb-4">
           <div class="card h-50">
-            <h4 class="card-header">Gloabal Rating</h4>
+            <h4 class="card-header">Global Rating</h4>
             <div class="card-body">
               <p class="card-text">Lihat Semua Rating Yang Terdaftar</p>
             </div>
@@ -170,7 +170,7 @@
         </div>
          <div class="col-lg-4 mb-4">
           <div class="card h-50">
-            <h4 class="card-header">Setting</h4>
+            <h4 class="card-header">Pengaturan</h4>
             <div class="card-body">
               <p class="card-text">Pengaturan dari Akun Sampai Tampilan Mu</p>
             </div>
