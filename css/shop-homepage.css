@@ -1,0 +1,102 @@
+
+body {
+  padding-top: 54px;
+}
+
+#image-logo {
+	width: 50px;
+	height: 50px;
+}
+
+#image-menu{
+	margin-left: 2px;
+	width: 250px ;
+	height: 200px;
+}
+
+#image-rating {
+	margin-left: 2px;
+	width: 390px ;
+	height: 250px;
+}
+
+#image-promo {
+	margin: 0 auto;
+	width: 900px;
+	height: 350px;
+}
+
+.container-form{
+	border: 1px solid #dedcdc;
+	border-radius: 10px;
+	margin: 20px 0px 30px 5px;
+}
+
+#menu-form {
+	padding: 20px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.list-drop {
+	margin-left: 30px; 
+	margin-top: 30px;
+}
+
+.list-drop:hover {
+	text-decoration: none;
+}
+
+.dropdown-menu {
+	width: 255px;
+	height: auto;
+}
+
+.btn-upload{
+	margin: 0 0 0 700px;
+}
+
+.btn-upload:hover{
+	background-color: #1a49e1;
+}
+
+.form-check-input {
+	margin: 5px 0 0 140px;
+}
+
+#check-all {
+	display: none;
+}
+
+#delete {
+	display: none;
+}
+
+.card-title {
+	text-transform: capitalize;
+}
+
+.mb-4 {
+	margin-top: 80px;
+}
+
+/*Checked*/
+.checked {
+	color: orange;
+}
+
+.user-login {
+	text-transform: capitalize;
+	font-size: 20px;
+	margin-bottom: 5px;
+}
+
+
+#image-home {
+	width: 1900px;
+	height: 600px;
+}
