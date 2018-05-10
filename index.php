@@ -146,6 +146,39 @@
             </div>
           </div>
         </div>
+         <div class="col-lg-4 mb-4">
+          <div class="card h-50">
+            <h4 class="card-header">Diskon</h4>
+            <div class="card-body">
+              <p class="card-text">Ayo Lihat Promo Yang Menarik Disini</p>
+            </div>
+            <div class="card-footer">
+              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+            </div>
+          </div>
+        </div>
+         <div class="col-lg-4 mb-4">
+          <div class="card h-50">
+            <h4 class="card-header">Gloabal Rating</h4>
+            <div class="card-body">
+              <p class="card-text">Lihat Semua Rating Yang Terdaftar</p>
+            </div>
+            <div class="card-footer">
+              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+            </div>
+          </div>
+        </div>
+         <div class="col-lg-4 mb-4">
+          <div class="card h-50">
+            <h4 class="card-header">Setting</h4>
+            <div class="card-body">
+              <p class="card-text">Pengaturan dari Akun Sampai Tampilan Mu</p>
+            </div>
+            <div class="card-footer">
+              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+            </div>
+          </div>
+        </div>
       </div>
      </div>
 
