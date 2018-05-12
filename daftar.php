@@ -7,6 +7,7 @@
 		$password = mysqli_real_escape_string($link,strip_tags($_POST["pass"]));
 		$name = mysqli_real_escape_string($link,strip_tags($_POST["name"]));
 		$email = mysqli_real_escape_string($link,strip_tags($_POST["email"]));
+		$store = mysqli_real_escape_string($link,strip_tags($_POST["store"]));
 		
 		
 		
@@ -24,8 +25,11 @@
 
         if (count($errors)==0) {
         	$password = md5($password);
-	        $syntax="insert into akun values('$username','$name','$password','$email')";
+	        $syntax="INSERT INTO akun values('$username','$name','$password','$email')";
 			$login = mysqli_query($link,$syntax);
+			$syntax="INSERT INTO store (store_name, owner) VALUES('$store','$username')";
+			$login= mysqli_query($link,$syntax);
+			$_SESSION['store']= $store;
 			$_SESSION['username']= $username;
 			$_SESSION['name'] = $name;
 			header('location:login.html');
