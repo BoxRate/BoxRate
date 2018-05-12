@@ -22,10 +22,11 @@ body {
 	height: 250px;
 }
 
+
 #image-promo {
 	margin: 0 auto;
-	width: 900px;
-	height: 350px;
+	width: 820px;
+	height: 400px;
 }
 
 .container-form{
@@ -86,6 +87,7 @@ body {
 	margin-top: 80px;
 }
 
+
 /*Checked*/
 .checked {
 	color: orange;
@@ -104,24 +106,28 @@ body {
 }
 
 /*Slide curaousel*/
-.slide {
+#slide {
 	margin: 80px 60px 0 60px;
 }
 
-.slide-color {
+#slide-color {
 	margin: 0 0 0 0;
 	height: 620px;
 	background-color: #f0f0f0;
 }
 
 @media screen and (max-width:900px){
-	.slide {
+	#slide {
 		margin: 80px 0 0 0;
 	}
 }
 
 @media screen and (max-width:344px){
-	.slide {
+	#slide {
 		margin: 110px 0 0 0;
 	}
+}
+
+#akun {
+	display: none;
 }
