@@ -1,9 +1,7 @@
 
 body {
   padding-top: 54px;
-  background : white;
 }
-
 
 #image-logo {
 	width: 50px;
@@ -101,27 +99,4 @@ body {
 #image-home {
 	width: 1900px;
 	height: 600px;
-}
-
-/*Slide curaousel*/
-.slide {
-	margin: 80px 60px 0 60px;
-}
-
-.slide-color {
-	margin: 0 0 0 0;
-	height: 620px;
-	background-color: #f0f0f0;
-}
-
-@media screen and (max-width:900px){
-	.slide {
-		margin: 80px 0 0 0;
-	}
-}
-
-@media screen and (max-width:344px){
-	.slide {
-		margin: 110px 0 0 0;
-	}
 }

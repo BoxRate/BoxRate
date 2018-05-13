@@ -81,7 +81,7 @@
       <div class="container-form">
          <form id='menu-form' method="post" action="server/server-minuman.php" enctype="multipart/form-data">
           <div class="form-group">
-            <label >Masukan Gambar Minuman</label>
+            <label >Masukan Gambar</label>
             <input class="form-control" type="file" name="image">
           </div>
           <div class="form-group">

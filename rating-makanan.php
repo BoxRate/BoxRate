@@ -73,14 +73,7 @@
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-          <form class="mb-4">
-              <label>Kategori :</label>
-              <select name="category">
-                <option value="minggu">Sepekan</option>
-                <option value="bulan">Sebulan</option>
-                <option value="tahun">Setahun</option>
-              </select>
-            </form>
+
 
           <div class="row">
 
@@ -89,7 +82,7 @@
            $sql= "SELECT * FROM menu WHERE ket='makanan' order by rating DESC";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
-            echo "<div class='col-md-6 my-4'>
+            echo "<div class='col-md-6 mb-4'>
               <div class='card h-100'>
                 <a href='#'><img id='image-rating' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
                 <div class='card-body'>
