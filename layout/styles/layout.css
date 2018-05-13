@@ -41,9 +41,9 @@ File: Layout CSS
 #pageintro article footer{margin-top:50px;}
 
 
-/* Content Area
+/* 	tent Area
 --------------------------------------------------------------------------------------------------------------- */
-.container{padding:80px 0;}
+.container{padding:3px 0;}
 
 /* Content */
 .container .content{}
