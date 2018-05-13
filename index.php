@@ -72,6 +72,12 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
+            <li class="navbar-item">
+              <label for="akun">
+                <img class="nav-link" id="image-logo" src="images/user.png">
+              </label>
+              <a id="akun" class="nav-link" href="#">Akun</a>
+            </li>
             <li class="nav-item" >
               <a class="nav-link" href="index.php?logout='1'">Logout</a>
             </li>
@@ -81,8 +87,13 @@
     </nav>
 
 
+<<<<<<< HEAD
      <header>
        <div>
+=======
+     <header id="slide-color">
+       <div id="slide">
+>>>>>>> Andika_Pratama
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
