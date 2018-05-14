@@ -62,13 +62,13 @@
 
           <h1 class="my-4">Menu</h1>
           <div class="list-group">
-            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
-            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
+            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp;Makanan</a>
+            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Minuman</a>
             <div class="dropdown">
-            <a href="#" class="list-group-item dropdown-toggle" data-toggle="dropdown">&#x27a4; Edit Menu</a>
-            <ul class="dropdown-menu">
+            <a href="#" class="list-group-item" data-toggle="dropdown">&#x27a4; Edit Menu</a>
+            <ul class="dropdown-content">
               <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp; Edit Makanan</a></li>
-              <li><a href="#" class="list-drop">&emsp;&oplus; Edit Minuman</a></li>
+              <li><a href="#" class="list-drop">&#x27a4;&emsp; Edit Minuman</a></li>
             </ul>
           </div>
 

@@ -24,6 +24,8 @@
 
   <head>
 
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -46,8 +48,13 @@
       <div class="container">
         <a class="navbar-brand" href="#">
           <img id='image-logo' src="images/logo/BoxRate.png">
+<<<<<<< HEAD
         BoxRate : <a class="user-login" style="color: white;"><?php if (isset($_SESSION["name"])): ?>
                   <?php  echo $_SESSION['name'];?>
+=======
+            <a class="user-login" style="color: #fff;">BoxRate :</a><a class="user-login" style="color: white;"><?php if (isset($_SESSION["store"])): ?>
+                  <?php  echo $_SESSION['store'];?>
+>>>>>>> Andika_Pratama
                    <?php endif ?>
 
                 <?php if (isset($_SESSION["username"]) and $_SESSION['name']==NULL): ?>
@@ -72,16 +79,17 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
-            <li class="navbar-item">
-              <label for="akun">
-                <img class="nav-link" id="image-logo" src="images/user.png">
-              </label>
-              <a id="akun" class="nav-link" href="#">Akun</a>
-            </li>
-            <li class="nav-item" >
-              <a class="nav-link" href="index.php?logout='1'">Logout</a>
-            </li>
           </ul>
+          <div class="dropdown">
+              <label data-toggle='dropdown'>
+                <img id='image-user' src="images/user.png">
+              </label>
+            <ul class="dropdown-menu">
+              <li><a href="">Tes</a></li>
+              <li class="divider"></li>
+              <li ><a href="index.php?logout='1'">Logout</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -239,6 +247,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
   </body>
 
