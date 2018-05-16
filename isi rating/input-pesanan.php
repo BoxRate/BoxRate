@@ -77,25 +77,55 @@
           	 <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
            $sql= "SELECT * FROM menu WHERE ket='makanan'";
-           $result = mysqli_query($db, $sql);
-            echo "<form class='row' method='post' action=''>";
+           $result = mysqli_query($db, $sql); 
+            echo "<table class='table table-bordered' style='margin-top:95px;'>
+		    <thead>
+		      <tr>
+		        <th>Nama Makanan</th>
+		        <th>Harga</th>
+		        <th>Jumlah Pesanan</th>
+		      </tr>
+		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
-            echo "<div class='col-lg-4 col-md-6 mb-4'>
-              <div class='card h-100'>
-                <a href='#'><img id='image-menu' class='card-img-top' src='../images/makanan/".$row['image']."' alt=''></a>
-                <div class='card-body'>
-                  <h4 class='card-title'>
-                    <a href='#'>".$row['name']."</a>
-                  </h4>
-                  <h5>Rp. ".$row['price']."</h5>
-                  <p class='card-text'>".$row['description']."</p>
-                </div>
-                <div class='card-footer'>
-                </div>";
-              echo"</div>
-            </div>";
+            $nomor[]=$row['id'];
+            echo " <tbody>
+		      <tr>
+		        <td>".$row['name']."</td>
+		        <td>".$row['price']."</td>
+		        <td><input nama='Pesanan[]' type='number'></td>
+		      </tr>";
+		    
              }
-          
+             echo "</tbody>
+		  		</table>";
+          	
+
+          	 $sql= "SELECT * FROM menu WHERE ket='minuman'";
+          	 $result = mysqli_query($db, $sql); 
+            echo "<table class='table table-bordered' style='margin-top:95px;'>
+		    <thead>
+		      <tr>
+		        <th>Nama Minuman</th>
+		        <th>Harga</th>
+		        <th>Jumlah Pesanan</th>
+		      </tr>
+		    </thead>";
+           while ($row=mysqli_fetch_array($result)) {
+            $nomor[]=$row['id'];
+            echo " <tbody>
+		      <tr>
+		        <td>".$row['name']."</td>
+		        <td>".$row['price']."</td>
+		        <td><input nama='Pesanan[]' type='number'></td>
+		      </tr>";
+		    
+             }
+             echo "</tbody>
+		  		</table>";
+
+
+		  	echo "<input class='btn btn-secondary btn-pesan' type='submit' value='Pesan'>";
+
           ?>
        
           </div>
