@@ -12,10 +12,10 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="css/shop-homepage.css">
+    <link rel="stylesheet" type="text/css" href="../css/shop-homepage.css">
 
   </head>
 
@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img id='image-logo'src="images/logo/BoxRate.png">
+          <img id='image-logo'src="../images/logo/BoxRate.png">
         BoxRate</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">Home
+              <a class="nav-link" href="../index.php">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -64,7 +64,7 @@
           <h1 class="my-4">Isi Rating</h1>
           <div class="list-group">
             <a href="#" class="list-group-item">&#x27a4; Input Pesanan</a>
-            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Ubah Pesanan</a>
+            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Total Pesanan</a>
           </div>
 
         </div>
@@ -74,7 +74,29 @@
 
 
           <div class="row">
-
+          	 <?php
+           $db = mysqli_connect("localhost", "root", "", "boxrate");
+           $sql= "SELECT * FROM menu WHERE ket='makanan'";
+           $result = mysqli_query($db, $sql);
+            echo "<form class='row' method='post' action=''>";
+           while ($row=mysqli_fetch_array($result)) {
+            echo "<div class='col-lg-4 col-md-6 mb-4'>
+              <div class='card h-100'>
+                <a href='#'><img id='image-menu' class='card-img-top' src='../images/makanan/".$row['image']."' alt=''></a>
+                <div class='card-body'>
+                  <h4 class='card-title'>
+                    <a href='#'>".$row['name']."</a>
+                  </h4>
+                  <h5>Rp. ".$row['price']."</h5>
+                  <p class='card-text'>".$row['description']."</p>
+                </div>
+                <div class='card-footer'>
+                </div>";
+              echo"</div>
+            </div>";
+             }
+          
+          ?>
        
           </div>
           <!-- /.row -->
@@ -97,8 +119,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 

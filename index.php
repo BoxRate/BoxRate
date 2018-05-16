@@ -31,7 +31,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
-	<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+	  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
   </head>
 
   <body >
