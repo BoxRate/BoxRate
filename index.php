@@ -73,8 +73,13 @@
                 <img id='image-user' src="images/user.png">
               </label>
             <ul class="dropdown-menu">
-              <li><a href="">Tes</a></li>
+              <li><a style="text-transform: capitalize;" href=""> <?php if (isset($_SESSION["name"])): ?>
+                  <?php  echo $_SESSION['name'];?>
+                   <?php endif ?></a></li>
               <li class="divider"></li>
+              <li><a href="">Help</a></li>
+              <li><a href="">Setting</a></li>
+               <li class="divider"></li>
               <li ><a href="index.php?logout='1'">Logout</a></li>
             </ul>
           </div>
