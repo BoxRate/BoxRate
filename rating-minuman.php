@@ -65,24 +65,32 @@
 
           <h1 class="my-4">Rating</h1>
           <div class="list-group">
-            <a href="rating-minuman.php" class="list-group-item">&#x27a4;&nbsp; Minumann</a>
-            <a href="rating-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
+            <a href="rating-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
+            <a href="rating-minuman.php" class="list-group-item">&#x27a4;&nbsp; Minuman</a>
           </div>
 
         </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-
+           <form class="mb-4">
+              <label>Kategori :</label>
+              <select name="category">
+                <option value="minggu">Sepekan</option>
+                <option value="bulan">Sebulan</option>
+                <option value="tahun">Setahun</option>
+              </select>
+            </form>
 
           <div class="row">
+
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
            $sql= "SELECT * FROM menu WHERE ket='minuman' order by rating DESC";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
-            echo "<div class='col-md-6 mb-4'>
+            echo "<div class='col-md-6 my-4'>
               <div class='card h-100'>
                 <a href='#'><img id='image-rating' class='card-img-top' src='images/minuman/".$row['image']."' alt=''></a>
                 <div class='card-body'>

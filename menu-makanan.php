@@ -10,6 +10,7 @@
 
     <title>Menu-Makanan</title>
 
+
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -65,8 +66,8 @@
             <a href="#" class="list-group-item">&#x27a4; Makanan</a>
             <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Minuman</a>
            <div class="dropdown">
-            <a href="#" class="list-group-item dropdown-toggle" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
-            <ul class="dropdown-menu">
+            <a href="#" class="list-group-item" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
+            <ul class="dropdown-content">
               <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp;Edit Makanan</a></li>
               <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Edit Minuman</a></li>
             </ul>

@@ -23,7 +23,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
           <img id='image-logo' src="images/logo/BoxRate.png">
         BoxRate</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,13 +62,13 @@
 
           <h1 class="my-4">Menu</h1>
           <div class="list-group">
-            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
-            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
+            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp;Makanan</a>
+            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Minuman</a>
             <div class="dropdown">
-            <a href="#" class="list-group-item dropdown-toggle" data-toggle="dropdown">&#x27a4; Edit Menu</a>
-            <ul class="dropdown-menu">
-              <li><a href="#" class="list-drop">&emsp;&oplus; Edit Makanan</a></li>
-              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp; Edit Minuman</a></li>
+            <a href="#" class="list-group-item" data-toggle="dropdown">&#x27a4; Edit Menu</a>
+            <ul class="dropdown-content">
+              <li><a href="#" class="list-drop">&#x27a4;&emsp;Edit Makanan</a></li>
+              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Edit Minuman</a></li>
             </ul>
           </div>
 
@@ -81,7 +81,7 @@
       <div class="container-form">
          <form id='menu-form' method="post" action="server/server-makanan.php" enctype="multipart/form-data">
           <div class="form-group">
-            <label >Masukan Gambar</label>
+            <label >Masukan Gambar Makanan</label>
             <input class="form-control" type="file" name="image">
           </div>
           <div class="form-group">
