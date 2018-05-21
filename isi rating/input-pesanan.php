@@ -57,6 +57,8 @@
     <!-- Page Content -->
     <div class="container">
 
+    	
+
       <div class="row">
 
         <div class="col-lg-3">
@@ -88,9 +90,29 @@
 		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
             $nomor[]=$row['id'];
+            echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
+                  <div class="modal-dialog">
+                  
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">'.$row['name'].'</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <img style="width:450px; height:250px; margin-left: 10px;"  src="../images/makanan/'.$row['image'].'" >
+                        <p style ="margin-left:10px;">'.$row['description'].'</p>
+                      </div>
+                      <div class="modal-footer">
+                      <h5 style="margin-right:50%;">Harga : Rp. '.$row['price'].'</h5>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>';
             echo " <tbody>
 		      <tr>
-		        <td>".$row['name']."</td>
+		        <td><a style='text-transform: capitalize;' href='#myModal".$row['id']."' data-toggle='modal'>".$row['name']."</a></td>
 		        <td>".$row['price']."</td>
 		        <td><input nama='Pesanan[]' type='number'></td>
 		      </tr>";
@@ -112,9 +134,29 @@
 		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
             $nomor[]=$row['id'];
+            echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
+                  <div class="modal-dialog">
+                  
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">'.$row['name'].'</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <img style="width:450px; height:250px; margin-left: 10px;"  src="../images/minuman/'.$row['image'].'" >
+                        <p style ="margin-left:10px;">'.$row['description'].'</p>
+                      </div>
+                      <div class="modal-footer">
+                      <h5 style="margin-right:50%;">Harga : Rp. '.$row['price'].'</h5>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>';
             echo " <tbody>
 		      <tr>
-		        <td>".$row['name']."</td>
+		        <td><a style='text-transform: capitalize;' href='#myModal".$row['id']."' data-toggle='modal' >".$row['name']."</a></td>
 		        <td>".$row['price']."</td>
 		        <td><input nama='Pesanan[]' type='number'></td>
 		      </tr>";
@@ -127,8 +169,7 @@
 		  	echo "<input class='btn btn-secondary btn-pesan' type='submit' value='Pesan'>";
 
           ?>
-       
-          </div>
+        </div>
           <!-- /.row -->
 
         </div>
