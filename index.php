@@ -149,7 +149,7 @@
               <p class="card-text">Ayo Tentukan Makanan dan Minuman Kesukaan Pelanggan Disini !! <br>Kami akan menghitungnya untukmu</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Masuk</a>
+              <a href="isi%20rating/input-pesanan.php" class="btn btn-primary">Masuk</a>
             </div>
           </div>
         </div>
