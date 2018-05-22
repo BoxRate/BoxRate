@@ -70,7 +70,7 @@
           </ul>
           <div class="dropdown">
               <label data-toggle='dropdown'>
-                <img style="max-width:10%" id='image-user' src="images/user.png">
+                <img style="max-width: 50px" id='image-user' src="images/user.png">
               </label>
             <ul class="dropdown-menu">
               <li><a style="text-transform: capitalize;" href=""> <?php if (isset($_SESSION["name"])): ?>
