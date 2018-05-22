@@ -76,6 +76,7 @@
           <form class="mb-4">
               <label>Kategori :</label>
               <select name="category">
+			    <option value="harian">sehari</option>
                 <option value="minggu">Sepekan</option>
                 <option value="bulan">Sebulan</option>
                 <option value="tahun">Setahun</option>
