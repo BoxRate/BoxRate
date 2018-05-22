@@ -90,6 +90,11 @@
 		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
             $nomor[]=$row['id'];
+            $query= "SELECT * FROM pesanan WHERE id_menu='$row[id]'";
+                $hasil=mysqli_query($db, $query);
+                  while ($trow=mysqli_fetch_array($hasil)) {
+                    $jumlah= (int)$trow['jumlah'];
+                  }
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
                   
@@ -102,6 +107,7 @@
                       <div class="modal-body">
                         <img style="width:450px; height:250px; margin-left: 10px;"  src="../images/makanan/'.$row['image'].'" >
                         <p style ="margin-left:10px;">'.$row['description'].'</p>
+                        <h6 style ="margin-left:10px;">Terjual : '.$jumlah.'<h6>
                       </div>
                       <div class="modal-footer">
                       <h5 style="margin-right:50%;">Harga : Rp. '.$row['price'].'</h5>
@@ -134,6 +140,11 @@
 		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
             $nomor[]=$row['id'];
+                $query= "SELECT * FROM pesanan WHERE id_menu='$row[id]'";
+                $hasil=mysqli_query($db, $query);
+                  while ($trow=mysqli_fetch_array($hasil)) {
+                    $jumlah= (int)$trow['jumlah'];
+                  }
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
                   
@@ -146,8 +157,10 @@
                       <div class="modal-body">
                         <img style="width:450px; height:250px; margin-left: 10px;"  src="../images/minuman/'.$row['image'].'" >
                         <p style ="margin-left:10px;">'.$row['description'].'</p>
+                        <h6 style ="margin-left:10px;">Terjual : '.$jumlah.' </h6>
                       </div>
                       <div class="modal-footer">
+                      
                       <h5 style="margin-right:50%;">Harga : Rp. '.$row['price'].'</h5>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
