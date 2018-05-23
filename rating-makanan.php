@@ -83,6 +83,12 @@
               </select>
 			  
             </form>
+			<form class="mb-4">
+			<label>Harga :</label>
+			<select name="price">
+			</select>
+			</form>
+			
 
           <div class="row">
 
