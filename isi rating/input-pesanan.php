@@ -66,7 +66,7 @@
           <h1 class="my-4">Isi Rating</h1>
           <div class="list-group">
             <a href="#" class="list-group-item">&#x27a4; Input Pesanan</a>
-            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Total Pesanan</a>
+            <a href="total-pesanan.php" class="list-group-item">&emsp;&nbsp;Total Pesanan</a>
           </div>
 
         </div>
@@ -99,7 +99,7 @@
                   <div class="modal-dialog">
                     <form method="post" action="../server/server-pesanan.php">
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div style="background: #17a2b8; color:#fff" class="modal-header">
                         <h4 class="modal-title" style="text-transform:capitalize;">'.$row['name'].'</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
@@ -120,7 +120,7 @@
                   <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div style="background: #17a2b8; color:#fff" class="modal-header">
                         <h4 class="modal-title">'.$row['name'].'</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
@@ -170,7 +170,7 @@
                   <div class="modal-dialog">
                     <form method="post" action="../server/server-pesanan.php">
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div style="background: #17a2b8; color:#fff" class="modal-header">
                         <h4 class="modal-title" style="text-transform:capitalize;">'.$row['name'].'</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
@@ -191,7 +191,7 @@
                   <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                      <div class="modal-header">
+                      <div style="background: #17a2b8; color:#fff" class="modal-header">
                         <h4 class="modal-title">'.$row['name'].'</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
