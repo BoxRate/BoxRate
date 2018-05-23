@@ -103,14 +103,14 @@
                 </div>
                 <div class='card-footer'>
                 <small class='text-muted'>";
-                if ($row['price']>80) {
+                if ($row['price']>0) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>";
                 }
-                elseif ($row['price']>60) {
+                elseif ($row['price']>20) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
@@ -124,14 +124,14 @@
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>";
                 }
-                elseif($row['price']>20) {
+                elseif($row['price']>60) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>";
                 }
-                elseif($row['price']>0) {
+                elseif($row['price']>80) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
