@@ -76,7 +76,7 @@
           <form class="mb-4">
               <label>Kategori :</label>
               <select name="category">
-			  <option value="hari">harian</option>
+			    <option value="hari">harian</option>
                 <option value="minggu">Sepekan</option>
                 <option value="bulan">Sebulan</option>
                 <option value="tahun">Setahun</option>
@@ -88,12 +88,12 @@
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='makanan' order by rating DESC";
+           $sql= "SELECT * FROM menu WHERE ket='makanan' order by price DESC";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-md-6 my-4'>
               <div class='card h-100'>
-                <a href='#'><img id='image-rating' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
+                <a href='#'><img id='image-price' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
                 <div class='card-body'>
                   <h4 class='card-title'>
                     <a href='#'>".$row['name']."</a>
@@ -103,35 +103,35 @@
                 </div>
                 <div class='card-footer'>
                 <small class='text-muted'>";
-                if ($row['rating']>80) {
+                if ($row['price']>80) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>";
                 }
-                elseif ($row['rating']>60) {
+                elseif ($row['price']>60) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star'></span>";
                 }
-                elseif($row['rating']>40) {
+                elseif($row['price']>40) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>";
                 }
-                elseif($row['rating']>20) {
+                elseif($row['price']>20) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star checked'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>";
                 }
-                elseif($row['rating']>0) {
+                elseif($row['price']>0) {
                   echo "<span class='fa fa-star checked'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
