@@ -96,21 +96,26 @@
                     $jumlah= (int)$trow['jumlah'];
                   }
                 echo '<div class="modal fade" id="PesananModal'.$row['id'].'" role="dialog">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Input Pesanan</h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <div class="modal-dialog">
+                    <form method="post" action="../server/server-pesanan.php">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title" style="text-transform:capitalize;">'.$row['name'].'</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                      <input style="display:none;" name="id-pesan" value="'.$row['id'].'" >
+                      <label>Jumlah Pesanan : </label>
+                      <input style="float:right; border-radius:5px; width:50px;" type="number" name="jumlah" value="0">
+                      </div>
+                      <div class="modal-footer">
+                        <input class="btn btn-primary" type="submit" name="Pesan" value="Pesan">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
                     </div>
-                    <div class="modal-body">
-                      
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                    </form>
                   </div>
-                </div>
-              </div>';
+                </div>';
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
                     <!-- Modal content-->
@@ -163,18 +168,23 @@
 
             echo '<div class="modal fade" id="PesananModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
+                    <form method="post" action="../server/server-pesanan.php">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h4 class="modal-title">Input Pesanan</h4>
+                        <h4 class="modal-title" style="text-transform:capitalize;">'.$row['name'].'</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
                       <div class="modal-body">
-                        
+                      <input style="display:none;" name="id-pesan" value="'.$row['id'].'" >
+                      <label>Jumlah Pesanan : </label>
+                      <input style="float:right; border-radius:5px; width:50px;" type="number" name="jumlah" value="0">
                       </div>
                       <div class="modal-footer">
+                        <input class="btn btn-primary" type="submit" name="Pesan" value="Pesan">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>
                     </div>
+                    </form>
                   </div>
                 </div>';
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
