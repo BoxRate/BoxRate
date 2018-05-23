@@ -95,9 +95,24 @@
                   while ($trow=mysqli_fetch_array($hasil)) {
                     $jumlah= (int)$trow['jumlah'];
                   }
+                echo '<div class="modal fade" id="PesananModal'.$row['id'].'" role="dialog">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Input Pesanan</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>';
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
-                  
                     <!-- Modal content-->
                     <div class="modal-content">
                       <div class="modal-header">
@@ -120,7 +135,7 @@
 		      <tr>
 		        <td><a style='text-transform: capitalize;' href='#myModal".$row['id']."' data-toggle='modal'>".$row['name']."</a></td>
 		        <td>".$row['price']."</td>
-		        <td><input nama='Pesanan[]' type='number'></td>
+		        <td><a href='#PesananModal".$row['id']."' data-toggle='modal'>Pesan</a></td>
 		      </tr>";
 		    
              }
@@ -145,9 +160,25 @@
                   while ($trow=mysqli_fetch_array($hasil)) {
                     $jumlah= (int)$trow['jumlah'];
                   }
+
+            echo '<div class="modal fade" id="PesananModal'.$row['id'].'" role="dialog">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Input Pesanan</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>';
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
-                  
                     <!-- Modal content-->
                     <div class="modal-content">
                       <div class="modal-header">
@@ -171,15 +202,13 @@
 		      <tr>
 		        <td><a style='text-transform: capitalize;' href='#myModal".$row['id']."' data-toggle='modal' >".$row['name']."</a></td>
 		        <td>".$row['price']."</td>
-		        <td><input nama='Pesanan[]' type='number'></td>
+		        <td><a href='#PesananModal".$row['id']."' data-toggle='modal'>Pesan</a></td>
 		      </tr>";
 		    
              }
              echo "</tbody>
 		  		</table>";
 
-
-		  	echo "<input class='btn btn-secondary btn-pesan' type='submit' value='Pesan'>";
 
           ?>
         </div>
