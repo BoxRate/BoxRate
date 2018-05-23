@@ -86,7 +86,11 @@
 			<form class="mb-4">
 			<label>Harga :</label>
 			<select name="price">
+			<option value="tumpeng">20000</option>
+			<option value="nasi uduk">15000</option>
+			<option value="nasi bebek">10000</option>
 			</select>
+			
 			</form>
 			
 
