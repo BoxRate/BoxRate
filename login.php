@@ -13,6 +13,7 @@
 
             if (mysqli_num_rows($result)==1) {
 	             $data=mysqli_query($link,"SELECT username,name FROM akun WHERE password='$password'");
+	             $store=mysqli_query($link,"SELECT store_name FROM store WHERE owner='$username'");
 	             if ($data === FALSE) {
 	                die(mysqli_error());
 	             }
@@ -20,6 +21,11 @@
 	             while($hasil=mysqli_fetch_array($data)){
 	                $name=(string)$hasil[name];
 	                $username=(string)$hasil[username];
+	               
+	             }
+
+	             while ($row=mysqli_fetch_array($store)) {
+	             	$_SESSION['store']= (string)$row[store_name];
 	             }
 
             $_SESSION['name'] = $name;

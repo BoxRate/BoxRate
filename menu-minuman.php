@@ -62,11 +62,11 @@
 
           <h1 class="my-4">Menu</h1>
           <div class="list-group">
-            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
+            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp;Makanan</a>
             <a href="#" class="list-group-item">&#x27a4; Minuman</a>
             <div class="dropdown">
-            <a href="#" class="list-group-item dropdown-toggle" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
-            <ul class="dropdown-menu">
+            <a href="#" class="list-group-item" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
+            <ul class="dropdown-content">
               <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp;Edit Makanan</a></li>
               <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Edit Minuman</a></li>
             </ul>
@@ -93,7 +93,7 @@
                 <img id="image-promo" class="d-block img-fluid" src="images/diskon/minuman-02.jpg" alt="Second slide">
               </div>
               <div id="image-promo" class="carousel-item">
-                <img class="d-block img-fluid" src="images/diskon/minuman-03.jpg" alt="Third slide">
+                <img id="image-promo" class="d-block img-fluid" src="images/diskon/minuman-03.jpg" alt="Third slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
