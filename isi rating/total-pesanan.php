@@ -73,11 +73,72 @@
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
+          <div class='row'>
+          <?php
+           $db = mysqli_connect("localhost", "root", "", "boxrate");
+
+//Makanan
+           $sql= "SELECT * FROM menu m,pesanan p WHERE m.ket='makanan' and p.id_menu=m.id";
+           $result = mysqli_query($db, $sql); 
+
+        echo "
+          <table class='table table-bordered' style='margin-top:95px;'>
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Makanan</th>
+            <th>Gambar</th>
+            <th>Total Pesanan</th>
+          </tr>
+        </thead>";
+        echo "<tbody>";
+         $i=1;
+        while ($row=mysqli_fetch_array($result)) {
+          echo "
+          <tr>
+            <td>".$i++."</td>
+            <td>".$row['name']."</td>
+            <td><img src='../images/makanan/".$row['image']."' style='width: 100px; height: 60px;'></td>
+            <td>".$row['jumlah']."</td>
+          </tr>";
+        }
+        echo "</tbody>";
+      echo "</table>";
 
 
-          <div class="row">
-          	
-        </div>
+//Minuman
+
+      $sql= "SELECT * FROM menu m,pesanan p WHERE m.ket='minuman' and p.id_menu=m.id";
+           $result = mysqli_query($db, $sql); 
+
+
+        echo "
+          <table class='table table-bordered' style='margin-top:95px;'>
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Minuman</th>
+            <th>Gambar</th>
+            <th>Total Pesanan</th>
+          </tr>
+        </thead>";
+        echo "<tbody>";
+         $i=1;
+        while ($row=mysqli_fetch_array($result)) {
+          echo "
+          <tr>
+            <td>".$i++."</td>
+            <td>".$row['name']."</td>
+            <td><img src='../images/minuman/".$row['image']."' style='width: 100px; height: 60px;'></td>
+            <td>".$row['jumlah']."</td>
+          </tr>";
+        }
+        echo "</tbody>";
+      echo "</table>";
+
+         ?>
+
+          </div>
           <!-- /.row -->
 
         </div>
