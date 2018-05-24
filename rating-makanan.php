@@ -84,7 +84,7 @@
 			  
             </form>
 			<form class="mb-4">
-			<label>Urut Berdasarkan</label>
+			<label>Urut Berdasarkan:</label>
 			<select name="price">
 			<option value="harga">Harga</option>
 			<option value="rating">Rating</option>
