@@ -76,7 +76,11 @@
           <form class="mb-4">
               <label>Kategori :</label>
               <select name="category">
+<<<<<<< HEAD
 			    <option value="hari">harian</option>
+=======
+			    <option value="harian">sehari</option>
+>>>>>>> Andika_Pratama
                 <option value="minggu">Sepekan</option>
                 <option value="bulan">Sebulan</option>
                 <option value="tahun">Setahun</option>
