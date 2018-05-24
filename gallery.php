@@ -1,6 +1,21 @@
 <html>
 <head>
-	<title>Gallery</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Gallery</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/shop-homepage.css">
+    
+	
 <style type="text/css">
   body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -95,6 +110,59 @@
 
 <body>
 	
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img id='image-logo'src="images/logo/BoxRate.png">
+        BoxRate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link" href="index.php?logout='1'">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-3">
+
+          <h1 class="my-4">Menu</h1>
+          <div class="list-group">
+            <a href="#" class="list-group-item">&#x27a4; Makanan</a>
+            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Minuman</a>
+           <div class="dropdown">
+            <a href="#" class="list-group-item" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
+            <ul class="dropdown-content">
+              <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp;Edit Makanan</a></li>
+              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Edit Minuman</a></li>
+            </ul>
+          </div>
+          </div>
+
 		<?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
            $sql= "SELECT * FROM menu WHERE ket='makanan'";
