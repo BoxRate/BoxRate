@@ -76,22 +76,33 @@
           <form class="mb-4">
               <label>Kategori :</label>
               <select name="category">
+			    <option value="hari">harian</option>
                 <option value="minggu">Sepekan</option>
                 <option value="bulan">Sebulan</option>
                 <option value="tahun">Setahun</option>
               </select>
+			  
             </form>
+			<form class="mb-4">
+			<label>Urut Berdasarkan:</label>
+			<select name="price">
+			<option value="harga">Harga</option>
+			<option value="rating">Rating</option>
+			</select>
+			
+			</form>
+			
 
           <div class="row">
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='makanan' order by rating DESC";
+           $sql= "SELECT * FROM menu WHERE ket='makanan' order by price";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-md-6 my-4'>
               <div class='card h-100'>
-                <a href='#'><img id='image-rating' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
+                <a href='#'><img id='image-price' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
                 <div class='card-body'>
                   <h4 class='card-title'>
                     <a href='#'>".$row['name']."</a>

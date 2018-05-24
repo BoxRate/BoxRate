@@ -76,18 +76,28 @@
            <form class="mb-4">
               <label>Kategori :</label>
               <select name="category">
+			    <option value="hari">harian</option>
                 <option value="minggu">Sepekan</option>
                 <option value="bulan">Sebulan</option>
                 <option value="tahun">Setahun</option>
               </select>
             </form>
+			
+			<form class="mb-4">
+			<label>urut berdasarkan:</label>
+			<select name="price">
+			<option value="harga">Harga</option>
+			<option value="rating">Rating</option>
+			</select>
+			
+			</form>
 
           <div class="row">
 
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='minuman' order by rating DESC";
+           $sql= "SELECT * FROM menu WHERE ket='minuman' order by rating";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-md-6 my-4'>

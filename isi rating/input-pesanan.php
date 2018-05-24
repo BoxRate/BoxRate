@@ -57,8 +57,11 @@
     <!-- Page Content -->
     <div class="container">
 
+<<<<<<< HEAD
     	
 
+=======
+>>>>>>> Ferizal
       <div class="row">
 
         <div class="col-lg-3">
@@ -90,6 +93,7 @@
 		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
             $nomor[]=$row['id'];
+<<<<<<< HEAD
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
                   
@@ -113,6 +117,11 @@
             echo " <tbody>
 		      <tr>
 		        <td><a style='text-transform: capitalize;' href='#myModal".$row['id']."' data-toggle='modal'>".$row['name']."</a></td>
+=======
+            echo " <tbody>
+		      <tr>
+		        <td>".$row['name']."</td>
+>>>>>>> Ferizal
 		        <td>".$row['price']."</td>
 		        <td><input nama='Pesanan[]' type='number'></td>
 		      </tr>";
@@ -134,6 +143,7 @@
 		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
             $nomor[]=$row['id'];
+<<<<<<< HEAD
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
                   
@@ -157,6 +167,11 @@
             echo " <tbody>
 		      <tr>
 		        <td><a style='text-transform: capitalize;' href='#myModal".$row['id']."' data-toggle='modal' >".$row['name']."</a></td>
+=======
+            echo " <tbody>
+		      <tr>
+		        <td>".$row['name']."</td>
+>>>>>>> Ferizal
 		        <td>".$row['price']."</td>
 		        <td><input nama='Pesanan[]' type='number'></td>
 		      </tr>";
@@ -169,7 +184,12 @@
 		  	echo "<input class='btn btn-secondary btn-pesan' type='submit' value='Pesan'>";
 
           ?>
+<<<<<<< HEAD
         </div>
+=======
+       
+          </div>
+>>>>>>> Ferizal
           <!-- /.row -->
 
         </div>
