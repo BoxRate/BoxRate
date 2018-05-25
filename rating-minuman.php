@@ -72,27 +72,21 @@
         </div>
         <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
-           <form class="mb-4">
-              <label>Kategori :</label>
-              <select name="category">
-			    <option value="hari">harian</option>
-                <option value="minggu">Sepekan</option>
-                <option value="bulan">Sebulan</option>
-                <option value="tahun">Setahun</option>
-              </select>
-            </form>
-			
-			<form class="mb-4">
-			<label>urut berdasarkan:</label>
-			<select name="price">
-			<option value="harga">Harga</option>
-			<option value="rating">Rating</option>
-			</select>
-			
-			</form>
+         <div class="container">
+           
 
           <div class="row">
+		  <div class="col-sm-4" style="background-color:#DCDCDC;">
+      <a href="#"><p align="center">harga</p></a>
+	</div>
+    <div class="col-sm-4" style="background-color:#DCDCDC;">
+	 <a href="#"><p align="center">terlaris</p></a>
+  </div>
+  <div class="col-sm-4" style="background-color:#DCDCDC;">
+     <a href="#"><p align="center">kategori</p></a>
+  </div>
+   </div>
+</div>
 
 
         <?php

@@ -79,13 +79,7 @@
   
   
     <div class="col-sm-4" style="background-color:#DCDCDC;">
-      <div class="dropdown">
-            <a href="#" class="list-group-item" data-toggle="dropdown">&emsp;&nbsp;Harga</a>
-	   <ul class="dropdown-content">
-              <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp;Rendah ke Tinggi</a></li>
-              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Tinggi ke Rendah</a></li>
-            </ul>
-    </div>
+      <a href="#"><p align="center">harga</p></a>
 	</div>
     <div class="col-sm-4" style="background-color:#DCDCDC;">
 	 <a href="#"><p align="center">terlaris</p></a>
