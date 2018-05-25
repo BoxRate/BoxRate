@@ -93,7 +93,6 @@
 		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
             $nomor[]=$row['id'];
-<<<<<<< HEAD
             echo '<div class="modal fade" id="myModal'.$row['id'].'" role="dialog">
                   <div class="modal-dialog">
                   
@@ -114,11 +113,11 @@
                     </div>
                   </div>
                 </div>';
-            echo " <tbody>
+            echo " <tbody> "
 		      <tr>
 		        <td><a style='text-transform: capitalize;' href='#myModal".$row['id']."' data-toggle='modal'>".$row['name']."</a></td>
 =======
-            echo " <tbody>
+            echo " <tbody> "
 		      <tr>
 		        <td>".$row['name']."</td>
 >>>>>>> Ferizal
