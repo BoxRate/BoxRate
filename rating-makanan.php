@@ -72,28 +72,30 @@
         </div>
         <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
-          <form class="mb-4">
-              <label>Kategori :</label>
-              <select name="category">
-			    <option value="hari">harian</option>
-                <option value="minggu">Sepekan</option>
-                <option value="bulan">Sebulan</option>
-                <option value="tahun">Setahun</option>
-              </select>
-			  
-            </form>
-			<form class="mb-4">
-			<label>Urut Berdasarkan:</label>
-			<select name="price">
-			<option value="harga">Harga</option>
-			<option value="rating">Rating</option>
-			</select>
-			
-			</form>
-			
+        
+		  <div class="container">
+ 
+  <div class="row">
+  
+  
+    <div class="col-sm-4" style="background-color:#DCDCDC;">
+      <div class="dropdown">
+            <a href="#" class="list-group-item" data-toggle="dropdown">&emsp;&nbsp;Harga</a>
+	   <ul class="dropdown-content">
+              <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp;Rendah ke Tinggi</a></li>
+              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Tinggi ke Rendah</a></li>
+            </ul>
+    </div>
+	</div>
+    <div class="col-sm-4" style="background-color:#DCDCDC;">
+	 <a href="#"><p align="center">terlaris</p></a>
+  </div>
+  <div class="col-sm-4" style="background-color:#DCDCDC;">
+     <a href="#"><p align="center">kategori</p></a>
+  </div>
+   </div>
+</div>
 
-          <div class="row">
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
