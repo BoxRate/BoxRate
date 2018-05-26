@@ -75,20 +75,39 @@
         
 		  <div class="container">
  
-  <div class="row">
-  
-  
-    <div class="col-sm-4" style="background-color:#DCDCDC;">
-      <a href="#"><p align="center">harga</p></a>
+ <div class="row">
+		  <div class="col-sm-4" style="background-color:#DCDCDC;">
+      
+	   <div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">harga<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Rendah ke Tinggi</a></li>
+        <li><a href="#">Tinggi ke Rendah</a></li>
+    </ul>
+</div>
 	</div>
     <div class="col-sm-4" style="background-color:#DCDCDC;">
-	 <a href="#"><p align="center">terlaris</p></a>
+	<div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">terlaris<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Hari ini</a></li>
+        <li><a href="#">Minggu lalu</a></li>
+    </ul>
+</div>
   </div>
   <div class="col-sm-4" style="background-color:#DCDCDC;">
-     <a href="#"><p align="center">kategori</p></a>
+   <div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">kategori<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">harian</a></li>
+        <li><a href="#">mingguan</a></li>
+		<li><a href="#">bulanan</a></li>
+    </ul>
+</div>
   </div>
    </div>
 </div>
+
 
 
         <?php

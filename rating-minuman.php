@@ -80,7 +80,7 @@
 		  <div class="col-sm-4" style="background-color:#DCDCDC;">
       
 	   <div class="dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><p align="center">harga<b class="caret"></p></b></a>
+    <a href="#" data-toggle="dropdown"><p align="center">harga<b class="caret"></p></b></a>
     <ul class="dropdown-menu">
         <li><a href="#">Rendah ke Tinggi</a></li>
         <li><a href="#">Tinggi ke Rendah</a></li>
@@ -89,7 +89,7 @@
 	</div>
     <div class="col-sm-4" style="background-color:#DCDCDC;">
 	<div class="dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><p align="center">terlaris<b class="caret"></p></b></a>
+    <a href="#" data-toggle="dropdown"><p align="center">terlaris<b class="caret"></p></b></a>
     <ul class="dropdown-menu">
         <li><a href="#">Hari ini</a></li>
         <li><a href="#">Minggu lalu</a></li>
@@ -98,7 +98,7 @@
   </div>
   <div class="col-sm-4" style="background-color:#DCDCDC;">
    <div class="dropdown">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle"><p align="center">kategori<b class="caret"></p></b></a>
+    <a href="#" data-toggle="dropdown"><p align="center">kategori<b class="caret"></p></b></a>
     <ul class="dropdown-menu">
         <li><a href="#">harian</a></li>
         <li><a href="#">mingguan</a></li>
