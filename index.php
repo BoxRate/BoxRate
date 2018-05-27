@@ -171,7 +171,7 @@
               <p class="card-text">Lihat Semua Rating Yang Terdaftar</p>
             </div>
             <div class="card-footer">
-              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+              <a href="glob-rate-makanan.php" class="btn btn-primary">Masuk</a>
             </div>
           </div>
         </div>
