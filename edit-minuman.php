@@ -1,3 +1,11 @@
+<?php
+  include('login.php'); 
+    if (empty($_SESSION['username'])) {
+        header('location: login.html');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,6 +103,7 @@
           <div class="form-group">
             <textarea class="form-control" name="description" placeholder="deskripsi" rows='2' cols='30' form="menu-form"></textarea>
           </div>
+            <input style="display: none;" type="number" name="store_id" value="<?php echo $_SESSION['store_id'] ?>">
             <input class="btn btn-secondary btn-upload" type="submit" name="upload" value="upload">
          </form>
        </div>
@@ -112,7 +121,8 @@
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='minuman'";
+           $storeid=$_SESSION['store_id'];
+           $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid'";
            $result = mysqli_query($db, $sql);
             echo "<form class='row' method='post' action='server/server-minuman.php'>";
            while ($row=mysqli_fetch_array($result)) {

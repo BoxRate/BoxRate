@@ -1,3 +1,4 @@
+
 <?php 
 	 // Create database connection
   $db = mysqli_connect("localhost", "root", "", "boxrate");
@@ -12,6 +13,7 @@
   	$text = mysqli_real_escape_string($db, $_POST['text']);
     $price = mysqli_real_escape_string($db, $_POST['price']);
     $desc = mysqli_real_escape_string($db, $_POST['description']);
+    $store_id=mysqli_real_escape_string($db, $_POST['store_id']);;
 
     $div= explode('.', $image);
     $file_ext=strtolower(end($div));
@@ -20,7 +22,7 @@
   	$target = "../images/minuman/".$unique_image;
 
     if (!empty($image) && !empty($price) && !empty($text)) {
-  	$sql = "INSERT INTO menu (image, name, price, ket,description) VALUES ('$unique_image', '$text', '$price','minuman', '$desc')";
+  	$sql = "INSERT INTO menu (image, name, price, ket,description,store_id) VALUES ('$unique_image', '$text', '$price','minuman', '$desc', '$store_id')";
   	// execute query
   	mysqli_query($db, $sql);
 

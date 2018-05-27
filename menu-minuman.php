@@ -1,3 +1,11 @@
+<?php
+  include('login.php'); 
+    if (empty($_SESSION['username'])) {
+        header('location: login.html');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,7 +118,8 @@
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='minuman'";
+            $storeid=$_SESSION['store_id'];
+           $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid'";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-lg-4 col-md-6 mb-4'>
