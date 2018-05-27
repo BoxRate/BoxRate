@@ -68,7 +68,7 @@
             <a href="rating-makanan.php" class="list-group-item">&#x27a4;&nbsp; Makanan</a>
             <a href="rating-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
           </div>
-
+         <br/>
         </div>
         <!-- /.col-lg-3 -->
 
