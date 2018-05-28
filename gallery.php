@@ -2,22 +2,14 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Gallery</title>
 
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" type="text/css" href="css/shop-homepage.css">
-    
-	
-<style type="text/css">
-  body {font-family: Arial, Helvetica, sans-serif;}
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
 #myImg {
     border-radius: 5px;
@@ -105,6 +97,15 @@
     }
 }
 </style>
+    
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="css/shop-homepage.css">
+
 
 </head>
 
@@ -146,48 +147,33 @@
     <!-- Page Content -->
     <div class="container">
 
-      <div class="row">
-
-        <div class="col-lg-3">
-
-          <h1 class="my-4">Menu</h1>
-          <div class="list-group">
-            <a href="#" class="list-group-item">&#x27a4; Makanan</a>
-            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Minuman</a>
-           <div class="dropdown">
-            <a href="#" class="list-group-item" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
-            <ul class="dropdown-content">
-              <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp;Edit Makanan</a></li>
-              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Edit Minuman</a></li>
-            </ul>
-          </div>
-          </div>
 
 		<?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
            $sql= "SELECT * FROM menu WHERE ket='makanan'";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
-           		echo "<img id='myImg' src='images/makanan/".$row['image']."' alt='tes' width='300' height='200'>";
+           		echo "<img id='myImg' src='images/makanan/".$row['image']."' alt='Food' width='300' height='200'>";
 
            }
 
            $sql= "SELECT * FROM menu WHERE ket='minuman'";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
-              echo "<img id='myImg' src='images/minuman/".$row['image']."' alt='tes' width='300' height='200'>";
+              echo "<img id='myImg' src='images/minuman/".$row['image']."' alt='Drink' width='300' height='200'>";
            }
 
-        echo '   <!-- The Modal -->
-              <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="myImg">
-                <div id="caption"></div>
-              </div>';
 
-?>
+    ?>
 
-<script>
+      <!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+    <script>
 // Get the modal
 var modal = document.getElementById('myModal');
 
@@ -210,7 +196,20 @@ span.onclick = function() {
 }
 </script>
 
-           
-	</table>
+    </div>
+
+      <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; BoxRate 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
+
 </html>
