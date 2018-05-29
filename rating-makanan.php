@@ -165,6 +165,13 @@
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>";
                 }
+                else {
+                  echo "<span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>";
+                }
              
               echo "</small></div>
               </div>
