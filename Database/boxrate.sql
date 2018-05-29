@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2018 at 10:00 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Waktu pembuatan: 29 Bulan Mei 2018 pada 16.56
+-- Versi server: 10.1.30-MariaDB
+-- Versi PHP: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `akun`
+-- Struktur dari tabel `akun`
 --
 
 CREATE TABLE `akun` (
@@ -36,7 +36,7 @@ CREATE TABLE `akun` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `akun`
+-- Dumping data untuk tabel `akun`
 --
 
 INSERT INTO `akun` (`username`, `name`, `password`, `email`) VALUES
@@ -44,12 +44,13 @@ INSERT INTO `akun` (`username`, `name`, `password`, `email`) VALUES
 ('andika', 'andika pratama', '7e51eea5fa101ed4dade9ad3a7a072bb', 'andikalfahri@gmail.com'),
 ('Andika2', 'Andika Pratama', '7e51eea5fa101ed4dade9ad3a7a072bb', 'a@mail.com'),
 ('andika7', 'andika pratama', '7e51eea5fa101ed4dade9ad3a7a072bb', 'apratama9@gmail.com'),
-('siti', 'siti alifah', 'db04eb4b07e0aaf8d1d477ae342bdff9', 'siti@gmail.com');
+('siti', 'siti alifah', 'db04eb4b07e0aaf8d1d477ae342bdff9', 'siti@gmail.com'),
+('zikri', 'zikri', '70d70567e6d253e5046d6593652b3d2b', 'muammar.clasic@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Struktur dari tabel `menu`
 --
 
 CREATE TABLE `menu` (
@@ -64,7 +65,7 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `menu`
+-- Dumping data untuk tabel `menu`
 --
 
 INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `description`, `rating`, `store_id`) VALUES
@@ -72,12 +73,14 @@ INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `description`, `ratin
 (32, 'b81206e87f.jpg', 10000, 'aneka', 'minuman', 'Campura dari berbagia buah yang menciptakan rasa yang unik', 70, 2),
 (33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', 'Nasi bebek khas jawa dengan bebek betina yang menjadi dagimg utama', 93, 2),
 (40, '8036ec9ca6.jpg', 20000, 'Tumpeng', 'makanan', 'Tumpeng yang dibuat khusus dengan harga terjangkau', 76, 2),
-(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', 'jus yang terbuat dari mangga yang segar dipetik langsung dari kebun', 79, 2);
+(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', 'jus yang terbuat dari mangga yang segar dipetik langsung dari kebun', 79, 2),
+(45, 'a444cf315c.jpg', 10000, 'Coffe Blend', 'minuman', 'tes', 0, 2),
+(46, '0c8bc3d674.png', 2000000, 'CD', 'makanan', 'tes', 0, 3);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanan`
+-- Struktur dari tabel `pesanan`
 --
 
 CREATE TABLE `pesanan` (
@@ -87,20 +90,20 @@ CREATE TABLE `pesanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pesanan`
+-- Dumping data untuk tabel `pesanan`
 --
 
 INSERT INTO `pesanan` (`id_menu`, `id_store`, `jumlah`) VALUES
-(30, 2, 5),
+(30, 2, 15),
 (32, 2, 16),
-(33, 2, 5),
+(33, 2, 10),
 (40, 2, 7),
 (41, 2, 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `store`
+-- Struktur dari tabel `store`
 --
 
 CREATE TABLE `store` (
@@ -110,80 +113,81 @@ CREATE TABLE `store` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `store`
+-- Dumping data untuk tabel `store`
 --
 
 INSERT INTO `store` (`store_id`, `store_name`, `owner`) VALUES
 (2, 'longtime', 'andika'),
-(3, 'Solong', 'andik');
+(3, 'Solong', 'andik'),
+(4, 'zikri', 'zikri');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `akun`
+-- Indeks untuk tabel `akun`
 --
 ALTER TABLE `akun`
   ADD PRIMARY KEY (`username`),
   ADD UNIQUE KEY `email_1` (`email`);
 
 --
--- Indexes for table `menu`
+-- Indeks untuk tabel `menu`
 --
 ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_storefk` (`store_id`);
 
 --
--- Indexes for table `pesanan`
+-- Indeks untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
   ADD KEY `id_menufk` (`id_menu`),
   ADD KEY `store_idfk` (`id_store`);
 
 --
--- Indexes for table `store`
+-- Indeks untuk tabel `store`
 --
 ALTER TABLE `store`
   ADD PRIMARY KEY (`store_id`),
   ADD KEY `owner-fg` (`owner`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `menu`
+-- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `store`
+-- AUTO_INCREMENT untuk tabel `store`
 --
 ALTER TABLE `store`
-  MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `store_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `menu`
+-- Ketidakleluasaan untuk tabel `menu`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `id_storefk` FOREIGN KEY (`store_id`) REFERENCES `store` (`store_id`);
 
 --
--- Constraints for table `pesanan`
+-- Ketidakleluasaan untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
   ADD CONSTRAINT `id_menufk` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id`),
   ADD CONSTRAINT `store_idfk` FOREIGN KEY (`id_store`) REFERENCES `store` (`store_id`);
 
 --
--- Constraints for table `store`
+-- Ketidakleluasaan untuk tabel `store`
 --
 ALTER TABLE `store`
   ADD CONSTRAINT `owner-fg` FOREIGN KEY (`owner`) REFERENCES `akun` (`username`);

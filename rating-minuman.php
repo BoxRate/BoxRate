@@ -75,54 +75,21 @@
           <div class="list-group">
             <a href="rating-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
             <a href="rating-minuman.php" class="list-group-item">&#x27a4;&nbsp; Minuman</a>
+            <a id="rate" href="" onclick="urutkan(1)">Rating</a>
+          
           </div>
          </br>
         </div>
         <!-- /.col-lg-3 -->
 
-       
-      <div class="container">
-          <div class="row">
-		    <div class="col-sm-4" style="background-color:#DCDCDC;">
-      
-	   <div class="dropdown">
-    <a href="#" data-toggle="dropdown"><p align="center">harga<b class="caret"></p></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Rendah ke Tinggi</a></li>
-        <li><a href="#">Tinggi ke Rendah</a></li>
-    </ul>
-    </div>
-	</div>
-    <div class="col-sm-4" style="background-color:#DCDCDC;">
-	<div class="dropdown">
-    <a href="#" data-toggle="dropdown"><p align="center">terlaris<b class="caret"></p></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Hari ini</a></li>
-        <li><a href="#">Minggu lalu</a></li>
-    </ul>
-  </div>
-  </div>
-  <div class="col-sm-4" style="background-color:#DCDCDC;">
-   <div class="dropdown">
-    <a href="#" data-toggle="dropdown"><p align="center">kategori<b class="caret"></p></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">harian</a></li>
-        <li><a href="#">mingguan</a></li>
-		<li><a href="#">bulanan</a></li>
-    </ul>
-	
- </div>
-  </div>
-   </div>
-    </div>
-
-
+        <div class="col-lg-9">
+          <div class="row" style="margin-top: 70px;">
 
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
            $storeid=$_SESSION['store_id'];
-           $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid' order by rating DESC";
+           $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid'";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-md-6 my-4'>
@@ -201,6 +168,12 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+      function urutkan(b) {
+       alert(b);
+      }
+    </script>
 
   </body>
 
