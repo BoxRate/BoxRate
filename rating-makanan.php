@@ -68,45 +68,54 @@
             <a href="rating-makanan.php" class="list-group-item">&#x27a4;&nbsp; Makanan</a>
             <a href="rating-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
           </div>
-
+         </br>
         </div>
         <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
-          <form class="mb-4">
-              <label>Kategori :</label>
-              <select name="category">
-<<<<<<< HEAD
-			    <option value="hari">harian</option>
-=======
-			    <option value="harian">sehari</option>
->>>>>>> Andika_Pratama
-                <option value="minggu">Sepekan</option>
-                <option value="bulan">Sebulan</option>
-                <option value="tahun">Setahun</option>
-              </select>
-			  
-            </form>
-			<form class="mb-4">
-			<label>Urut Berdasarkan:</label>
-			<select name="price">
-			<option value="harga">Harga</option>
-			<option value="rating">Rating</option>
-			</select>
-			
-			</form>
-			
-
+     
+               <div class="container">
           <div class="row">
+     <div class="col-sm-4" style="background-color:#DCDCDC;">
+      
+	   <div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">harga<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Rendah ke Tinggi</a></li>
+        <li><a href="#">Tinggi ke Rendah</a></li>
+    </ul>
+    </div>
+	</div>
+    <div class="col-sm-4" style="background-color:#DCDCDC;">
+	<div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">terlaris<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Hari ini</a></li>
+        <li><a href="#">Minggu lalu</a></li>
+    </ul>
+   </div>
+   </div>
+   <div class="col-sm-4" style="background-color:#DCDCDC;">
+   <div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">kategori<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">harian</a></li>
+        <li><a href="#">mingguan</a></li>
+		<li><a href="#">bulanan</a></li>
+    </ul>
+</div>
+ </div>
+  </div>
+    </div>
+
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='makanan' order by price";
+           $sql= "SELECT * FROM menu WHERE ket='makanan' order by rating DESC";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-md-6 my-4'>
               <div class='card h-100'>
-                <a href='#'><img id='image-price' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
+                <a href='#'><img id='image-rating' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
                 <div class='card-body'>
                   <h4 class='card-title'>
                     <a href='#'>".$row['name']."</a>

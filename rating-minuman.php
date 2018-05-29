@@ -1,11 +1,3 @@
-<?php
-  include('login.php'); 
-    if (empty($_SESSION['username'])) {
-        header('location: login.html');
-    }
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -76,18 +68,14 @@
             <a href="rating-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
             <a href="rating-minuman.php" class="list-group-item">&#x27a4;&nbsp; Minuman</a>
           </div>
- <br/>
+         </br>
         </div>
-		
-		
         <!-- /.col-lg-3 -->
 
-         <div class="container">
-	
-           
-
+       
+      <div class="container">
           <div class="row">
-		  <div class="col-sm-4" style="background-color:#DCDCDC;">
+		    <div class="col-sm-4" style="background-color:#DCDCDC;">
       
 	   <div class="dropdown">
     <a href="#" data-toggle="dropdown"><p align="center">harga<b class="caret"></p></b></a>
@@ -95,7 +83,7 @@
         <li><a href="#">Rendah ke Tinggi</a></li>
         <li><a href="#">Tinggi ke Rendah</a></li>
     </ul>
-</div>
+    </div>
 	</div>
     <div class="col-sm-4" style="background-color:#DCDCDC;">
 	<div class="dropdown">
@@ -104,7 +92,7 @@
         <li><a href="#">Hari ini</a></li>
         <li><a href="#">Minggu lalu</a></li>
     </ul>
-</div>
+  </div>
   </div>
   <div class="col-sm-4" style="background-color:#DCDCDC;">
    <div class="dropdown">
@@ -114,20 +102,18 @@
         <li><a href="#">mingguan</a></li>
 		<li><a href="#">bulanan</a></li>
     </ul>
-</div>
+	
+ </div>
   </div>
    </div>
-</div>
+    </div>
+
+
 
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-<<<<<<< HEAD
-           $sql= "SELECT * FROM menu WHERE ket='minuman' order by rating";
-=======
-           $storeid=$_SESSION['store_id'];
-           $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid' order by rating DESC";
->>>>>>> Andika_Pratama
+           $sql= "SELECT * FROM menu WHERE ket='minuman' order by rating DESC";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-md-6 my-4'>
