@@ -75,11 +75,20 @@
           <div class="list-group">
             <a href="rating-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
             <a href="rating-minuman.php" class="list-group-item">&#x27a4;&nbsp; Minuman</a>
-            <a id="rate" href="" onclick="urutkan(1)">Rating</a>
-          
+             <form method="post" action="rating-minuman.php">
+                <div class="form-group">
+                  <label class="list-group-item" for="sel1">Urut Berdasarkan</label>
+                  <select class="form-control" id="sel1" name="urut">
+                    <if ><?php $urut=1; ?>
+                    <option value="1">Rating</option>
+                    <option <?php error_reporting(0); if($_POST['urut']==2) {echo 'selected="selected"';} ?> value="2">Nama</option>
+                    <option <?php error_reporting(0); if($_POST['urut']==3) {echo 'selected="selected"';} ?> value="3">Harga</option>
+                  </select>
+                </div>
+                <input class="btn " type="submit" name="urutkan" value="urutkan">
+              </form>
+            </div>
           </div>
-         </br>
-        </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
@@ -87,9 +96,26 @@
 
 
         <?php
+
            $db = mysqli_connect("localhost", "root", "", "boxrate");
+           
+           if(isset($_POST["urutkan"])){
+              $urut = mysqli_real_escape_string($db,$_POST["urut"]);
+            }
            $storeid=$_SESSION['store_id'];
-           $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid'";
+           
+           
+           if ($urut ==1) {
+            $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid' order by rating desc";
+           }
+           if ($urut ==2) {
+            $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid' order by name";
+           }
+           if ($urut ==3) {
+            $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid' order by price";
+           }
+
+           
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-md-6 my-4'>
@@ -168,12 +194,6 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <script type="text/javascript">
-      function urutkan(b) {
-       alert(b);
-      }
-    </script>
 
   </body>
 
