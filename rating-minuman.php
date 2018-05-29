@@ -76,21 +76,47 @@
             <a href="rating-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
             <a href="rating-minuman.php" class="list-group-item">&#x27a4;&nbsp; Minuman</a>
           </div>
-
+         </br>
         </div>
         <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
-           <form class="mb-4">
-              <label>Kategori :</label>
-              <select name="category">
-                <option value="minggu">Sepekan</option>
-                <option value="bulan">Sebulan</option>
-                <option value="tahun">Setahun</option>
-              </select>
-            </form>
-
+       
+      <div class="container">
           <div class="row">
+		    <div class="col-sm-4" style="background-color:#DCDCDC;">
+      
+	   <div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">harga<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Rendah ke Tinggi</a></li>
+        <li><a href="#">Tinggi ke Rendah</a></li>
+    </ul>
+    </div>
+	</div>
+    <div class="col-sm-4" style="background-color:#DCDCDC;">
+	<div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">terlaris<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">Hari ini</a></li>
+        <li><a href="#">Minggu lalu</a></li>
+    </ul>
+  </div>
+  </div>
+  <div class="col-sm-4" style="background-color:#DCDCDC;">
+   <div class="dropdown">
+    <a href="#" data-toggle="dropdown"><p align="center">kategori<b class="caret"></p></b></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">harian</a></li>
+        <li><a href="#">mingguan</a></li>
+		<li><a href="#">bulanan</a></li>
+    </ul>
+	
+ </div>
+  </div>
+   </div>
+    </div>
+
+
 
 
         <?php
