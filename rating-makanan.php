@@ -80,8 +80,8 @@
 	   <div class="dropdown">
     <a href="#" data-toggle="dropdown"><p align="center">harga<b class="caret"></p></b></a>
     <ul class="dropdown-menu">
-        <li><a href="#">Rendah ke Tinggi</a></li>
-        <li><a href="#">Tinggi ke Rendah</a></li>
+        <li><a href="kecilbesarmakanan.php">Rendah ke Tinggi</a></li>
+        <li><a href="besarkecilmakanan">Tinggi ke Rendah</a></li>
     </ul>
     </div>
 	</div>
