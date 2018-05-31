@@ -9,18 +9,33 @@
 
     mysqli_query($db, $query);
 
-     $sql="SELECT * FROM pesanan WHERE jumlah=(SELECT MAX(jumlah) FROM pesanan)";
+    $sql="SELECT MAX(p.jumlah) AS jumlah,m.ket FROM pesanan p, menu m WHERE p.id_menu=m.id GROUP BY m.ket";
     $result=mysqli_query($db, $sql);
     while ($row=mysqli_fetch_array($result)) {
-    	$maksimal=(double) $row['jumlah'];
+    	$ket=(string) $row['ket'];
+    	if (strcmp($ket,'makanan')==0)
+    		$maksmakanan=(double) $row['jumlah'];
+    	elseif (strcmp($ket,'minuman')==0)
+    		$maksminuman=(double) $row['jumlah'];
     }
 
-    $sql="SELECT * FROM pesanan";
+
+    $sql="SELECT * FROM pesanan p, menu m WHERE p.id_menu=m.id";
     $result=mysqli_query($db, $sql);
     while ($row=mysqli_fetch_array($result)) {
     	$pesanan=(int) $row['jumlah'];
     	$idmenu= (int) $row['id_menu'];
-    	$query="UPDATE menu SET rating=(('$pesanan'/'$maksimal')*100) WHERE id='$idmenu'";
+    	$ket=(string) $row['ket'];
+
+    	if (strcmp($ket,'makanan')==0) {
+    		$rating=number_format((($pesanan/$maksmakanan)*100),2);
+
+    		$query="UPDATE menu SET rating='$rating' WHERE id='$idmenu' and ket='makanan'";
+    	}
+    	elseif (strcmp($ket,'minuman')==0) {
+    		$rating=number_format((($pesanan/$maksminuman)*100),2);
+    		$query="UPDATE menu SET rating='$rating' WHERE id='$idmenu' and ket='minuman'";
+    	}
     	 mysqli_query($db, $query);
     }
 
