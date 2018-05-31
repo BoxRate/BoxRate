@@ -29,34 +29,52 @@
   <body >
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+   <!-- Navigation -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
           <img id='image-logo' src="images/logo/BoxRate.png">
-        BoxRate</a>
+          <a class="user-login" style="color: white; font-family: times new romans;"><?php if (isset($_SESSION["store"])): ?>
+                  <?php  echo $_SESSION['store'];?>
+                   <?php endif ?>
+
+                <?php if (isset($_SESSION["username"]) and $_SESSION['name']==NULL): ?>
+                  <?php  echo $_SESSION['username'];?>
+                   <?php endif ?></a> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="font-family: times new romans;">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">Home
-                <span class="sr-only">(current)</span>
+              <a class="nav-link" href="index.php">Beranda
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Tentang</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Tanggapan</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item" >
-              <a class="nav-link" href="index.php?logout='1'">Logout</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Kontak</a>
             </li>
           </ul>
+          <div class="dropdown">
+              <label data-toggle='dropdown'>
+                <img id='image-user' src="images/user.png">
+              </label>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" style="text-transform: capitalize;" href=""> <?php if (isset($_SESSION["name"])): ?>
+                  <?php  echo $_SESSION['name'];?>
+                   <?php endif ?></a></li>
+              <li class="dropdown-divider"></li>
+              <li><a href="" class="dropdown-item">Bantuan ?</a></li>
+              <li><a class="dropdown-item" href="">Pengaturan</a></li>
+               <li class="dropdown-divider"></li>
+              <li ><a class="dropdown-item" href="index.php?logout='1'">Keluar</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -133,7 +151,7 @@
                   <p class='card-text'>".$row['description']."</p>
                 </div>
                 <div class='card-footer'>
-                  <small class='text-muted'>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                  
                 </div>
               </div>
             </div>";

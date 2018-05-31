@@ -1,3 +1,11 @@
+<?php
+  include('../login.php'); 
+    if (empty($_SESSION['username'])) {
+        header('location: ../login.html');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +86,8 @@
            $db = mysqli_connect("localhost", "root", "", "boxrate");
 
 //Makanan
-           $sql= "SELECT * FROM menu m,pesanan p WHERE m.ket='makanan' and p.id_menu=m.id";
+           $storeid=$_SESSION['store_id'];
+           $sql= "SELECT * FROM menu m,pesanan p WHERE m.ket='makanan' and p.id_menu=m.id and m.store_id='$storeid'";
            $result = mysqli_query($db, $sql); 
 
         echo "
@@ -108,7 +117,7 @@
 
 //Minuman
 
-      $sql= "SELECT * FROM menu m,pesanan p WHERE m.ket='minuman' and p.id_menu=m.id";
+      $sql= "SELECT * FROM menu m,pesanan p WHERE m.ket='minuman' and p.id_menu=m.id and store_id='$storeid'";
            $result = mysqli_query($db, $sql); 
 
 
