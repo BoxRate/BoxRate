@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Bulan Mei 2018 pada 16.56
+-- Waktu pembuatan: 31 Bulan Mei 2018 pada 06.36
 -- Versi server: 10.1.30-MariaDB
 -- Versi PHP: 7.2.2
 
@@ -59,8 +59,8 @@ CREATE TABLE `menu` (
   `price` int(11) NOT NULL,
   `name` text NOT NULL,
   `ket` varchar(200) NOT NULL,
+  `rating` double NOT NULL,
   `description` varchar(200) NOT NULL,
-  `rating` int(3) NOT NULL,
   `store_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -68,14 +68,25 @@ CREATE TABLE `menu` (
 -- Dumping data untuk tabel `menu`
 --
 
-INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `description`, `rating`, `store_id`) VALUES
-(30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 'Nasi Uduk dengan ayam dan nasi yang dimasak dengan bumbu khusus dari aceh', 60, 2),
-(32, 'b81206e87f.jpg', 10000, 'aneka', 'minuman', 'Campura dari berbagia buah yang menciptakan rasa yang unik', 70, 2),
-(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', 'Nasi bebek khas jawa dengan bebek betina yang menjadi dagimg utama', 93, 2),
-(40, '8036ec9ca6.jpg', 20000, 'Tumpeng', 'makanan', 'Tumpeng yang dibuat khusus dengan harga terjangkau', 76, 2),
-(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', 'jus yang terbuat dari mangga yang segar dipetik langsung dari kebun', 79, 2),
-(45, 'a444cf315c.jpg', 10000, 'Coffe Blend', 'minuman', 'tes', 0, 2),
-(46, '0c8bc3d674.png', 2000000, 'CD', 'makanan', 'tes', 0, 3);
+INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `rating`, `description`, `store_id`) VALUES
+(30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 65.63, 'Nasi Uduk dengan ayam dan nasi yang dimasak dengan bumbu khusus dari aceh', 2),
+(32, 'b81206e87f.jpg', 10000, 'aneka', 'minuman', 82.61, 'Campura dari berbagia buah yang menciptakan rasa yang unik', 2),
+(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', 100, 'Nasi bebek khas jawa dengan bebek betina yang menjadi dagimg utama', 2),
+(40, '8036ec9ca6.jpg', 20000, 'Tumpeng', 'makanan', 46.88, 'Tumpeng yang dibuat khusus dengan harga terjangkau', 2),
+(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', 100, 'jus yang terbuat dari mangga yang segar dipetik langsung dari kebun', 2),
+(47, 'd5a42c4e84.png', 5000, 'Begadang', 'minuman', 82.61, '', 2);
+
+--
+-- Trigger `menu`
+--
+DELIMITER $$
+CREATE TRIGGER `TAMBAH` AFTER INSERT ON `menu` FOR EACH ROW INSERT INTO
+pesanan
+SET
+id_menu=new.id,
+id_store=new.store_id
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -94,11 +105,12 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`id_menu`, `id_store`, `jumlah`) VALUES
-(30, 2, 15),
-(32, 2, 16),
-(33, 2, 10),
-(40, 2, 7),
-(41, 2, 10);
+(30, 2, 21),
+(32, 2, 19),
+(33, 2, 32),
+(40, 2, 15),
+(41, 2, 23),
+(47, 2, 19);
 
 -- --------------------------------------------------------
 
@@ -161,7 +173,7 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT untuk tabel `store`
