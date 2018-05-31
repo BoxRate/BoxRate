@@ -43,7 +43,7 @@
     $nama="";
 
     foreach($_POST['check'] as $id) {
-      $sql = "SELECT * FROM menu WHERE id='$id' and ket='minuman'";
+    $sql = "SELECT * FROM menu WHERE id='$id' and ket='minuman'";
     $result= mysqli_query($db, $sql);
 
      while($hasil=mysqli_fetch_array($result)){
@@ -55,14 +55,19 @@
         unlink($target);
      }
 
+     $sql = "DELETE FROM pesanan WHERE id_menu='$id'";
+     mysqli_query($db, $sql);
 
-    $sql = "DELETE FROM menu WHERE id='$id' and ket='minuman'";
-    mysqli_query($db, $sql);
+     $sql = "DELETE FROM menu WHERE id='$id' and ket='minuman'";
+     mysqli_query($db, $sql);
     }
 
     
-
     header('location: ../edit-minuman.php');
    }
+
+
+
+
 ?>
 

@@ -54,6 +54,8 @@
         unlink($target);
      }
 
+    $sql = "DELETE FROM pesanan WHERE id_menu='$id'";
+    mysqli_query($db, $sql);
 
     $sql = "DELETE FROM menu WHERE id='$id' and ket='makanan'";
     mysqli_query($db, $sql);

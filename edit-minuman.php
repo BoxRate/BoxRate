@@ -139,6 +139,52 @@
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
            $storeid=$_SESSION['store_id'];
+
+
+          $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid'";
+          $result = mysqli_query($db, $sql);
+           while ($row=mysqli_fetch_array($result)) {
+            echo '<form id="edit_form" method="post" action="server/edit-minuman.php" enctype="multipart/form-data">
+            <div class="modal fade" id="editModal'.$row["id"].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit Makanan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                   <div class="form-group">
+                      <label >Gambar Minuman</label>
+                      <input class="form-control" type="file" name="image">
+                      <input style="display: none;" type="text" name="image_name" value="'.$row['image'].'">
+                    </div>
+                    <div class="form-group">
+                      <label>Edit Nama</label>
+                      <input class="form-control" type="text" name="text" value="'.$row['name'].'">
+                    </div>
+                    <div class="form-group">
+                      <label>Harga Rp.</label>
+                      <input class="form-control" type="number" name="price" value="'.$row['price'].'">
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" type="text" name="desc" value="'.$row['description'].'">
+                    </div>
+                      <input style="display: none;" type="number" name="id_menu" value="'.$row['id'].'">
+                      <input style="display: none;" type="number" name="store_id" value="'.$_SESSION['store_id'].'">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" name="edit" class="btn btn-primary" value="Save changes">
+                  </div>
+                </div>
+               
+              </div>
+            </div>
+             </form>';
+          }
+
            $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid'";
            $result = mysqli_query($db, $sql);
             echo "<form class='row' method='post' action='server/server-minuman.php'>";
@@ -154,7 +200,7 @@
                   <p class='card-text'>".$row['description']."</p>
                 </div>
                 <div class='card-footer'>
-                  <small class='text-muted'>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                  <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#editModal".$row['id']."'> Edit </button>
                   <input class='form-check-input' type='checkbox' name='check[]' value='".$row['id']."'>
                 </div>";
               echo "<input id='delete' onclick=\"return confirm('Kamu Yakin Ingin Menghapusnya')\" type='submit' name='delete' value='delete'>";
@@ -163,6 +209,9 @@
              }
           echo "<input id ='check-all' type='checkbox' onclick='selectAll(this.checked)'>";
             echo "</form>";
+
+
+            
           ?>
           </div>
           <!-- /.row -->
