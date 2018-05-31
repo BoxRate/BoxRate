@@ -169,6 +169,7 @@
                       <input class="form-control" type="number" name="price" value="'.$row['price'].'">
                     </div>
                     <div class="form-group">
+                    <label>Deskripsi</label>
                       <input class="form-control" type="text" name="desc" value="'.$row['description'].'">
                     </div>
                       <input style="display: none;" type="number" name="id_menu" value="'.$row['id'].'">
@@ -200,7 +201,7 @@
                   <p class='card-text'>".$row['description']."</p>
                 </div>
                 <div class='card-footer'>
-                  <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#editModal".$row['id']."'> Edit </button>
+                  <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#editModal".$row['id']."'> Edit Menu </button>
                   <input class='form-check-input' type='checkbox' name='check[]' value='".$row['id']."'>
                 </div>";
               echo "<input id='delete' onclick=\"return confirm('Kamu Yakin Ingin Menghapusnya')\" type='submit' name='delete' value='delete'>";
