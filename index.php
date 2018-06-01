@@ -125,7 +125,7 @@
               </div>';
                } else {
                  echo '<div class="carousel-item">
-                <img id="image-home" class="d-block img-fluid" src="images/diskon/'.$row['image_promo'].'" alt="Second slide">
+                <img id="image-home" class="d-block img-fluid" src="images/diskon/'.$row['image_promo'].'" alt="">
               </div>';
               }
              $i++;
