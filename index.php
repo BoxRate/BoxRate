@@ -91,20 +91,46 @@
        <div id="slide">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <?php 
+               $db = mysqli_connect("localhost", "root", "", "boxrate");
+               $storeid=$_SESSION['store_id'];
+               $sql= "SELECT * FROM promo WHERE store_id='$storeid'";
+              $result = mysqli_query($db, $sql);
+              $i=0;
+
+              while ($row=mysqli_fetch_array($result)) {
+                if ($i==0) {
+                  echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'" class="active"></li>';
+                }else {
+                  echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"></li>';
+                }   
+              $i++;
+              }
+              ?>
             </ol>
             <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img id="image-home" class="d-block img-fluid" src="images/diskon/minuman-01.jpg" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img id="image-home" class="d-block img-fluid" src="images/diskon/minuman-02.jpg" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img id="image-home" class="d-block img-fluid" src="images/diskon/minuman-03.jpg" alt="Third slide">
-              </div>
+
+          <?php
+          
+           $sql= "SELECT * FROM promo WHERE store_id='$storeid'";
+           $result = mysqli_query($db, $sql);
+           if ($i==0) {
+             echo '<img id="image-home" src="images/diskon/no-promo.jpg">';
+           }
+              $i=0;
+              while ($row=mysqli_fetch_array($result)) {
+              if ($i==0) {
+                  echo '<div class="carousel-item active">
+                <img id="image-home" class="d-block img-fluid" src="images/diskon/'.$row['image_promo'].'" alt="First slide">
+              </div>';
+               } else {
+                 echo '<div class="carousel-item">
+                <img id="image-home" class="d-block img-fluid" src="images/diskon/'.$row['image_promo'].'" alt="">
+              </div>';
+              }
+             $i++;
+            }
+          ?>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
