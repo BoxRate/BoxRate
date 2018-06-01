@@ -71,60 +71,40 @@
 
         <div class="col-lg-3">
 
-          <h1 class="my-4">Rating</h1>
+          <h1 class="my-4">Global Rating</h1>
           <div class="list-group">
-            <a href="rating-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
-            <a href="rating-minuman.php" class="list-group-item">&#x27a4;&nbsp; Minuman</a>
-             <form method="post" action="rating-minuman.php">
-                <div class="form-group">
-                  <label class="list-group-item" for="sel1">Urut Berdasarkan</label>
-                  <select class="form-control" id="sel1" name="urut">
-                    <if ><?php $urut=1; ?>
-                    <option value="1">Rating</option>
-                    <option <?php error_reporting(0); if($_POST['urut']==2) {echo 'selected="selected"';} ?> value="2">Nama</option>
-                    <option <?php error_reporting(0); if($_POST['urut']==3) {echo 'selected="selected"';} ?> value="3">Harga</option>
-                  </select>
-                </div>
-                <input class="btn " type="submit" name="urutkan" value="urutkan">
-              </form>
-            </div>
+            <a href="#" class="list-group-item">&#x27a4;&nbsp; Makanan</a>
+            <a href="glob-rate-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
           </div>
+
+        </div>
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
-          <div class="row" style="margin-top: 70px;">
+
+
+          <div class="row">
 
 
         <?php
-
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           
-           if(isset($_POST["urutkan"])){
-              $urut = mysqli_real_escape_string($db,$_POST["urut"]);
-            }
-           $storeid=$_SESSION['store_id'];
-           
-           
-           if ($urut ==1) {
-            $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid' order by rating desc";
-           }
-           if ($urut ==2) {
-            $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid' order by name";
-           }
-           if ($urut ==3) {
-            $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid' order by price";
-           }
-
-           
+           $sql= "SELECT * FROM menu WHERE ket='makanan' order by rating DESC";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
+             $store_id=$row['store_id'];
+             $query= "SELECT * FROM store WHERE store_id='$store_id'";
+             $hasil = mysqli_query($db, $query);
+           while ($store=mysqli_fetch_array($hasil)) {
+              $toko=$store['store_name'];
+           }
             echo "<div class='col-md-6 my-4'>
               <div class='card h-100'>
-                <a href='#'><img id='image-rating' class='card-img-top' src='images/minuman/".$row['image']."' alt=''></a>
+                <a href='#'><img id='image-rating' class='card-img-top' src='images/makanan/".$row['image']."' alt=''></a>
                 <div class='card-body'>
                   <h4 class='card-title'>
                     <a href='#'>".$row['name']."</a>
                   </h4>
+                  <h6>Toko : ".$toko."</h6>
                   <h5>Rp. ".$row['price']."</h5>
                   <p class='card-text'>".$row['description']."</p>
                 </div>
@@ -160,12 +140,6 @@
                 }
                 elseif($row['rating']>0) {
                   echo "<span class='fa fa-star checked'></span>
-                  <span class='fa fa-star'></span>
-                  <span class='fa fa-star'></span>
-                  <span class='fa fa-star'></span>
-                  <span class='fa fa-star'></span>";
-                } else {
-                  echo "<span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>

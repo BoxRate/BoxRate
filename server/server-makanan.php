@@ -12,6 +12,7 @@
   	$text = mysqli_real_escape_string($db, $_POST['text']);
     $price = mysqli_real_escape_string($db, $_POST['price']);
     $desc = mysqli_real_escape_string($db, $_POST['description']);
+    $store_id=mysqli_real_escape_string($db, $_POST['store_id']);
 
     $div= explode('.', $image);
     $file_ext=strtolower(end($div));
@@ -20,7 +21,7 @@
   	$target = "../images/makanan/".$unique_image;
 
     if (!empty($image) && !empty($price) && !empty($text)) {
-  	$sql = "INSERT INTO menu (image, name, price, ket,description) VALUES ('$unique_image', '$text', '$price','makanan', '$desc')";
+  	$sql = "INSERT INTO menu (image, name, price, ket,description,store_id) VALUES ('$unique_image', '$text', '$price','makanan', '$desc', '$store_id')";
   	// execute query
   	mysqli_query($db, $sql);
 
@@ -53,6 +54,8 @@
         unlink($target);
      }
 
+    $sql = "DELETE FROM pesanan WHERE id_menu='$id'";
+    mysqli_query($db, $sql);
 
     $sql = "DELETE FROM menu WHERE id='$id' and ket='makanan'";
     mysqli_query($db, $sql);

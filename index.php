@@ -41,7 +41,7 @@
       <div class="container">
         <a class="navbar-brand" href="#">
           <img id='image-logo' src="images/logo/BoxRate.png">
-            <a class="user-login" style="color: #fff;">BoxRate :</a><a class="user-login" style="color: white;"><?php if (isset($_SESSION["store"])): ?>
+          <a class="user-login" style="color: white; font-family: times new romans;"><?php if (isset($_SESSION["store"])): ?>
                   <?php  echo $_SESSION['store'];?>
                    <?php endif ?>
 
@@ -51,21 +51,20 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="font-family: times new romans;">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
+              <a class="nav-link" href="#">Beranda
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#footer">Tentang</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#footer">Tanggapan</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#footer">Kontak</a>
             </li>
           </ul>
           <div class="dropdown">
@@ -77,10 +76,10 @@
                   <?php  echo $_SESSION['name'];?>
                    <?php endif ?></a></li>
               <li class="divider"></li>
-              <li><a href="">Help</a></li>
-              <li><a href="">Setting</a></li>
+              <li><a href="">Bantuan ?</a></li>
+              <li><a href="">Pengaturan</a></li>
                <li class="divider"></li>
-              <li ><a href="index.php?logout='1'">Logout</a></li>
+              <li ><a href="index.php?logout='1'">Keluar</a></li>
             </ul>
           </div>
         </div>
@@ -155,12 +154,12 @@
         </div>
          <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">Diskon</h4>
+            <h4 class="card-header">Promo</h4>
             <div class="card-body">
-              <p class="card-text">Ayo Lihat Promo Yang Menarik Disini</p>
+              <p class="card-text">Ayo Tambah Promomu buat pelangganmu terkesan</p>
             </div>
             <div class="card-footer">
-              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+              <a href="promo/isi-diskon.php" class="btn btn-primary">Masuk</a>
             </div>
           </div>
         </div>
@@ -171,7 +170,7 @@
               <p class="card-text">Lihat Semua Rating Yang Terdaftar</p>
             </div>
             <div class="card-footer">
-              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+              <a href="glob-rate-makanan.php" class="btn btn-primary">Masuk</a>
             </div>
           </div>
         </div>

@@ -1,3 +1,11 @@
+<?php
+  include('../login.php'); 
+    if (empty($_SESSION['username'])) {
+        header('location: ../login.html');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +55,7 @@
               <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item" >
-              <a class="nav-link" href="index.php?logout='1'">Logout</a>
+              <a class="nav-link" href="../index.php?logout='1'">Logout</a>
             </li>
           </ul>
         </div>
@@ -73,11 +81,73 @@
         <!-- /.col-lg-3 -->
 
         <div class="col-lg-9">
+          <div class='row'>
+          <?php
+           $db = mysqli_connect("localhost", "root", "", "boxrate");
+
+//Makanan
+           $storeid=$_SESSION['store_id'];
+           $sql= "SELECT * FROM menu m,pesanan p WHERE m.ket='makanan' and p.id_menu=m.id and m.store_id='$storeid'";
+           $result = mysqli_query($db, $sql); 
+
+        echo "
+          <table class='table table-bordered' style='margin-top:95px;'>
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Makanan</th>
+            <th>Gambar</th>
+            <th>Total Pesanan</th>
+          </tr>
+        </thead>";
+        echo "<tbody>";
+         $i=1;
+        while ($row=mysqli_fetch_array($result)) {
+          echo "
+          <tr>
+            <td>".$i++."</td>
+            <td>".$row['name']."</td>
+            <td><img src='../images/makanan/".$row['image']."' style='width: 100px; height: 60px;'></td>
+            <td>".$row['jumlah']."</td>
+          </tr>";
+        }
+        echo "</tbody>";
+      echo "</table>";
 
 
-          <div class="row">
-          	
-        </div>
+//Minuman
+
+      $sql= "SELECT * FROM menu m,pesanan p WHERE m.ket='minuman' and p.id_menu=m.id and store_id='$storeid'";
+           $result = mysqli_query($db, $sql); 
+
+
+        echo "
+          <table class='table table-bordered' style='margin-top:95px;'>
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Minuman</th>
+            <th>Gambar</th>
+            <th>Total Pesanan</th>
+          </tr>
+        </thead>";
+        echo "<tbody>";
+         $i=1;
+        while ($row=mysqli_fetch_array($result)) {
+          echo "
+          <tr>
+            <td>".$i++."</td>
+            <td>".$row['name']."</td>
+            <td><img src='../images/minuman/".$row['image']."' style='width: 100px; height: 60px;'></td>
+            <td>".$row['jumlah']."</td>
+          </tr>";
+        }
+        echo "</tbody>";
+      echo "</table>";
+
+         ?>
+
+          </div>
           <!-- /.row -->
 
         </div>

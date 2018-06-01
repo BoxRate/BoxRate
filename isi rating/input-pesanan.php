@@ -1,3 +1,11 @@
+<?php
+  include('../login.php'); 
+    if (empty($_SESSION['username'])) {
+        header('location: ../login.html');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +55,7 @@
               <a class="nav-link" href="#">Contact</a>
             </li>
             <li class="nav-item" >
-              <a class="nav-link" href="index.php?logout='1'">Logout</a>
+              <a class="nav-link" href="../index.php?logout='1'">Logout</a>
             </li>
           </ul>
         </div>
@@ -78,7 +86,8 @@
           <div class="row">
           	 <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='makanan'";
+           $storeid=$_SESSION['store_id'];
+           $sql= "SELECT * FROM menu WHERE ket='makanan' and store_id='$storeid'";
            $result = mysqli_query($db, $sql); 
             echo "<table class='table table-bordered' style='margin-top:95px;'>
 		    <thead>
@@ -148,7 +157,7 @@
 		  		</table>";
           	
 
-          	 $sql= "SELECT * FROM menu WHERE ket='minuman'";
+          	 $sql= "SELECT * FROM menu WHERE ket='minuman' and store_id='$storeid'";
           	 $result = mysqli_query($db, $sql); 
             echo "<table class='table table-bordered' style='margin-top:95px;'>
 		    <thead>
@@ -160,7 +169,7 @@
 		    </thead>";
            while ($row=mysqli_fetch_array($result)) {
             $nomor[]=$row['id'];
-                $query= "SELECT * FROM pesanan WHERE id_menu='$row[id]'";
+                $query= "SELECT * FROM pesanan WHERE id_menu='$row[id]' ";
                 $hasil=mysqli_query($db, $query);
                   while ($trow=mysqli_fetch_array($hasil)) {
                     $jumlah= (int)$trow['jumlah'];
