@@ -11,13 +11,13 @@
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
-#myImg {
+.myImg {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-#myImg:hover {opacity: 0.7;}
+.myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
 .modal {
@@ -38,8 +38,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
+    width: 300px;
     max-width: 700px;
+    height: 500px;
 }
 
 /* Caption of Modal Image */
@@ -148,53 +149,59 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 		<?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='makanan'";
+           $sql= "SELECT * FROM menu order by rating";
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
-           		echo "<img id='myImg' src='images/makanan/".$row['image']."' alt='Food' width='300' height='200'>";
+            $ket=(string) $row['ket'];
+        
+            if (strcmp($ket, 'makanan')==0) {
+                echo "<img class='myImg' id='myImg".$row['id']."' src='images/makanan/".$row['image']."' alt='".$row['name']."' width='300' height='200'>";       
+           }else  
+           		echo "<img class='myImg' id='myImg".$row['id']."' src='images/minuman/".$row['image']."' alt='".$row['name']."' width='300' height='200'>";
+  
+
+             echo ' <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img01">
+              <div id="caption"></div>
+            </div>';
+
+            echo '  <script>
+              // Get the modal
+              var modal = document.getElementById("myModal");
+
+              // Get the image and insert it inside the modal - use its "alt" text as a caption
+              var img = document.getElementById("myImg'.$row['id'].'");
+              var modalImg = document.getElementById("img01");
+              var captionText = document.getElementById("caption");
+              img.onclick = function(){
+                  modal.style.display = "block";
+                  modalImg.src = this.src;
+                  captionText.innerHTML = this.alt;
+              }
+
+              // Get the <span> element that closes the modal
+              var span = document.getElementsByClassName("close")[0];
+
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function() { 
+                  modal.style.display = "none";
+              }
+              </script>
+              ';
 
            }
 
-           $sql= "SELECT * FROM menu WHERE ket='minuman'";
-           $result = mysqli_query($db, $sql);
-           while ($row=mysqli_fetch_array($result)) {
-              echo "<img id='myImg' src='images/minuman/".$row['image']."' alt='Drink' width='300' height='200'>";
-           }
+
  
     ?>
 
 
  <!-- The Modal -->
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01, img02, img03">
-  <div id="caption"></div>
-</div>
 
 
-    <script>
-// Get the modal
-var modal = document.getElementById('myModal');
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementById('myImg');
-var modalImg = document.getElementById("img01, img02, img03");
-var captionText = document.getElementById("caption");
-img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-}
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() { 
-    modal.style.display = "none";
-}
-</script>
-
+  
     </div>
 
      <!-- Footer -->
