@@ -12,7 +12,7 @@
   	$text = mysqli_real_escape_string($db, $_POST['text']);
     $price = mysqli_real_escape_string($db, $_POST['price']);
     $desc = mysqli_real_escape_string($db, $_POST['description']);
-    $store_id=mysqli_real_escape_string($db, $_POST['store_id']);;
+    $store_id=mysqli_real_escape_string($db, $_POST['store_id']);
 
     $div= explode('.', $image);
     $file_ext=strtolower(end($div));
