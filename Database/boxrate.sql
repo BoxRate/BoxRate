@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Bulan Mei 2018 pada 06.36
+-- Waktu pembuatan: 01 Jun 2018 pada 10.43
 -- Versi server: 10.1.30-MariaDB
 -- Versi PHP: 7.2.2
 
@@ -70,11 +70,13 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `rating`, `description`, `store_id`) VALUES
 (30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 65.63, 'Nasi Uduk dengan ayam dan nasi yang dimasak dengan bumbu khusus dari aceh', 2),
-(32, 'b81206e87f.jpg', 10000, 'aneka', 'minuman', 82.61, 'Campura dari berbagia buah yang menciptakan rasa yang unik', 2),
-(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', 100, 'Nasi bebek khas jawa dengan bebek betina yang menjadi dagimg utama', 2),
-(40, '8036ec9ca6.jpg', 20000, 'Tumpeng', 'makanan', 46.88, 'Tumpeng yang dibuat khusus dengan harga terjangkau', 2),
+(32, 'b375d211f9.jpg', 10000, 'aneka', 'minuman', 82.61, 'Campuran dari berbagai buah yang menciptakan rasa yang unik', 2),
+(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', 100, 'Nasi bebek khas jawa dengan bebek betina yang menjadi daging utama', 2),
 (41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', 100, 'jus yang terbuat dari mangga yang segar dipetik langsung dari kebun', 2),
-(47, 'd5a42c4e84.png', 5000, 'Begadang', 'minuman', 82.61, '', 2);
+(48, '52fd0ac6df.jpg', 20000, 'Nasi Uduk', 'makanan', 0, 'andika', 3),
+(54, '0056d4e286.jpg', 100, 'tes', 'minuman', 0, 'asasa', 2),
+(55, 'faf3fab07c.jpg', 112212, 'ted', 'makanan', 0, 'xsxasda', 2),
+(56, '3fc3564193.jpg', 100000, 'adadadadadadeaddead', 'makanan', 0, 'adaddsdadaededadeadaeddaedadfafafafaffaddafafaaddadededadedadadeadadeedadfaefefaeffeafeafaefeafeafefeafaefefeafeafeafe', 2);
 
 --
 -- Trigger `menu`
@@ -108,9 +110,33 @@ INSERT INTO `pesanan` (`id_menu`, `id_store`, `jumlah`) VALUES
 (30, 2, 21),
 (32, 2, 19),
 (33, 2, 32),
-(40, 2, 15),
 (41, 2, 23),
-(47, 2, 19);
+(48, 3, 0),
+(54, 2, 0),
+(55, 2, 0),
+(56, 2, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `promo`
+--
+
+CREATE TABLE `promo` (
+  `id_promo` int(11) NOT NULL,
+  `image_promo` varchar(60) NOT NULL,
+  `store_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `promo`
+--
+
+INSERT INTO `promo` (`id_promo`, `image_promo`, `store_id`) VALUES
+(17, '1aa9eae4de.jpg', 2),
+(18, '1d981032cc.png', 2),
+(19, 'ca7aaa1b3f.jpg', 2),
+(20, '6d865cee7f.png', 2);
 
 -- --------------------------------------------------------
 
@@ -159,6 +185,12 @@ ALTER TABLE `pesanan`
   ADD KEY `store_idfk` (`id_store`);
 
 --
+-- Indeks untuk tabel `promo`
+--
+ALTER TABLE `promo`
+  ADD PRIMARY KEY (`id_promo`);
+
+--
 -- Indeks untuk tabel `store`
 --
 ALTER TABLE `store`
@@ -173,7 +205,13 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT untuk tabel `promo`
+--
+ALTER TABLE `promo`
+  MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `store`
