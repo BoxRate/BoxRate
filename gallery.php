@@ -98,8 +98,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 </style>
     
-
-
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -162,16 +160,17 @@ body {font-family: Arial, Helvetica, sans-serif;}
            while ($row=mysqli_fetch_array($result)) {
               echo "<img id='myImg' src='images/minuman/".$row['image']."' alt='Drink' width='300' height='200'>";
            }
-
-
+ 
     ?>
 
-      <!-- The Modal -->
+
+ <!-- The Modal -->
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
+  <img class="modal-content" id="img01, img02, img03">
   <div id="caption"></div>
 </div>
+
 
     <script>
 // Get the modal
@@ -179,7 +178,7 @@ var modal = document.getElementById('myModal');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.getElementById('myImg');
-var modalImg = document.getElementById("img01");
+var modalImg = document.getElementById("img01, img02, img03");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
     modal.style.display = "block";
@@ -198,7 +197,7 @@ span.onclick = function() {
 
     </div>
 
-      <!-- Footer -->
+     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; BoxRate 2018</p>
@@ -213,3 +212,4 @@ span.onclick = function() {
 </body>
 
 </html>
+
