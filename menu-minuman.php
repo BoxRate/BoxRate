@@ -75,6 +75,7 @@ header('location: login.html');
             <div class="list-group">
               <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp;Makanan</a>
               <a href="#" class="list-group-item">&#x27a4; Minuman</a>
+              <a href="gallery.php" class="list-group-item">&emsp;&nbsp;Gallery</a>
               <div class="dropdown">
                 <a href="#" class="list-group-item" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
                 <ul class="dropdown-content">
@@ -87,31 +88,57 @@ header('location: login.html');
           <!-- /.col-lg-3 -->
           <div class="col-lg-9">
             <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-              </ol>
-              <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                  <img id="image-promo" class="d-block img-fluid" src="images/diskon/minuman-01.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                  <img id="image-promo" class="d-block img-fluid" src="images/diskon/minuman-02.jpg" alt="Second slide">
-                </div>
-                <div id="image-promo" class="carousel-item">
-                  <img id="image-promo" class="d-block img-fluid" src="images/diskon/minuman-03.jpg" alt="Third slide">
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
+            <ol class="carousel-indicators">
+              <?php 
+               $db = mysqli_connect("localhost", "root", "", "boxrate");
+               $storeid=$_SESSION['store_id'];
+               $sql= "SELECT * FROM promo WHERE store_id='$storeid'";
+              $result = mysqli_query($db, $sql);
+              $i=0;
+
+              while ($row=mysqli_fetch_array($result)) {
+                if ($i==0) {
+                  echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'" class="active"></li>';
+                }else {
+                  echo '<li data-target="#carouselExampleIndicators" data-slide-to="'.$i.'"></li>';
+                }   
+              $i++;
+              }
+              ?>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+
+          <?php
+          
+           $sql= "SELECT * FROM promo WHERE store_id='$storeid'";
+           $result = mysqli_query($db, $sql);
+           if ($i==0) {
+             echo '<img id="image-home" src="images/diskon/no-promo.jpg">';
+           }
+              $i=0;
+              while ($row=mysqli_fetch_array($result)) {
+              if ($i==0) {
+                  echo '<div class="carousel-item active">
+                <img id="image-promo" class="d-block img-fluid" src="images/diskon/'.$row['image_promo'].'" alt="First slide">
+              </div>';
+               } else {
+                 echo '<div class="carousel-item">
+                <img id="image-promo" class="d-block img-fluid" src="images/diskon/'.$row['image_promo'].'" alt="">
+              </div>';
+              }
+             $i++;
+            }
+          ?>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
             <div class="row">
               <?php
               $db = mysqli_connect("localhost", "root", "", "boxrate");

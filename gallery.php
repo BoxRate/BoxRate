@@ -1,3 +1,10 @@
+<?php
+  include('login.php'); 
+    if (empty($_SESSION['username'])) {
+        header('location: login.html');
+    }
+?>
+
 <html>
 <head>
 
@@ -113,51 +120,93 @@ body {font-family: Arial, Helvetica, sans-serif;}
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">
-          <img id='image-logo'src="images/logo/BoxRate.png">
-        BoxRate</a>
+        <a class="navbar-brand" href="index.php">
+          <img id='image-logo' src="images/logo/BoxRate.png">
+          <a class="user-login" style="color: white; font-family: times new romans;"><?php if (isset($_SESSION["store"])): ?>
+                  <?php  echo $_SESSION['store'];?>
+                   <?php endif ?>
+
+                <?php if (isset($_SESSION["username"]) and $_SESSION['name']==NULL): ?>
+                  <?php  echo $_SESSION['username'];?>
+                   <?php endif ?></a> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="font-family: times new romans;">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">Home
-                <span class="sr-only">(current)</span>
+              <a class="nav-link" href="index.php">Beranda
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Tentang</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Tanggapan</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item" >
-              <a class="nav-link" href="index.php?logout='1'">Logout</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Kontak</a>
             </li>
           </ul>
+          <div class="dropdown">
+              <label data-toggle='dropdown'>
+                <img id='image-user' src="images/user.png">
+              </label>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" style="text-transform: capitalize;" href=""> <?php if (isset($_SESSION["name"])): ?>
+                  <?php  echo $_SESSION['name'];?>
+                   <?php endif ?></a></li>
+              <li class="dropdown-divider"></li>
+              <li><a href="" class="dropdown-item">Bantuan ?</a></li>
+              <li><a class="dropdown-item" href="">Pengaturan</a></li>
+               <li class="dropdown-divider"></li>
+              <li ><a class="dropdown-item" href="index.php?logout='1'">Keluar</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
 
-    <!-- Page Content -->
     <div class="container">
 
+      <div class="row">
+
+        <div class="col-lg-3">
+
+          <h1 class="my-4">Menu</h1>
+          <div class="list-group">
+            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp;Makanan</a>
+            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Minuman</a>
+            <a href="#" class="list-group-item">&#x27a4; Gallery</a>
+           <div class="dropdown">
+            <a href="#" class="list-group-item" data-toggle="dropdown">&emsp;&nbsp;Edit Menu</a>
+            <ul class="dropdown-content">
+              <li><a href="edit-makanan.php" class="list-drop">&emsp;&emsp;Edit Makanan</a></li>
+              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Edit Minuman</a></li>
+            </ul>
+          </div>
+          </div>
+
+        </div>
+         <div class="col-lg-9">
+          <div class="row">
 
 		<?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu order by rating";
+           $storeid=$_SESSION['store_id'];
+           $sql= "SELECT * FROM menu WHERE store_id='$storeid' order by ket";
            $result = mysqli_query($db, $sql);
+           echo "<div class=' mb-4'>";
            while ($row=mysqli_fetch_array($result)) {
             $ket=(string) $row['ket'];
         
             if (strcmp($ket, 'makanan')==0) {
-                echo "<img class='myImg' id='myImg".$row['id']."' src='images/makanan/".$row['image']."' alt='".$row['name']."' width='300' height='200'>";       
-           }else  
-           		echo "<img class='myImg' id='myImg".$row['id']."' src='images/minuman/".$row['image']."' alt='".$row['name']."' width='300' height='200'>";
+                echo "
+                <img class='myImg' id='myImg".$row['id']."' src='images/makanan/".$row['image']."' alt='".$row['name']."' width='250' height='200'>";       
+           }else  {
+           		echo "<img class='myImg' id='myImg".$row['id']."' src='images/minuman/".$row['image']."' alt='".$row['name']."' width='250' height='200'>";
+             
+            }
   
 
              echo ' <div id="myModal" class="modal">
@@ -191,10 +240,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
               ';
 
            }
+           echo "</div>";
 
     ?>
-  
-    </div>
+  </div>
+  </div>
+</div>
+</div>
 
      <!-- Footer -->
     <footer class="py-5 bg-dark">

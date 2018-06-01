@@ -89,6 +89,7 @@
           <div class="list-group">
             <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp;Makanan</a>
             <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Minuman</a>
+            <a href="gallery.php" class="list-group-item">&emsp;&nbsp;Gallery</a>
             <div class="dropdown">
             <a href="#" class="list-group-item" data-toggle="dropdown">&#x27a4; Edit Menu</a>
             <ul class="dropdown-content">
