@@ -192,15 +192,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
            }
 
-
- 
     ?>
-
-
- <!-- The Modal -->
-
-
-
   
     </div>
 
@@ -219,4 +211,3 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </body>
 
 </html>
-
