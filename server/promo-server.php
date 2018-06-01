@@ -31,4 +31,30 @@
   	
   }
 
+
+  if (isset($_POST['delete'])) {
+    //$id = mysqli_real_escape_string($db, $_POST['check']);
+    $nama="";
+
+    foreach($_POST['check'] as $id) {
+    $sql = "SELECT * FROM promo WHERE id_promo='$id'";
+    $result= mysqli_query($db, $sql);
+
+     while($hasil=mysqli_fetch_array($result)){
+          $nama=(string)$hasil['image_promo'];
+      }
+
+    $target="../images/diskon/".$nama;
+     if (file_exists($target)) {
+        unlink($target);
+     }
+
+    $sql = "DELETE FROM promo WHERE id_promo='$id'";
+    mysqli_query($db, $sql);
+
+    }
+
+    header('location: ../promo/isi-diskon.php');
+   }
+
   ?>

@@ -70,7 +70,7 @@ header('location: ../login.html');
       <div class="container">
         <div class="row">
           <div class="col-lg-3">
-            <h1 class="my-4">Menu</h1>
+            <h1 class="my-4">Promo</h1>
             <div class="list-group">
               <div class="container-form">
                 <form id='menu-form' method="post" action="../server/promo-server.php" enctype="multipart/form-data">
@@ -80,9 +80,7 @@ header('location: ../login.html');
                   </div>
                   <input style="display: none;" type="number" name="store_id" value="<?php echo $_SESSION['store_id'] ?>">
                   <input type="submit" class="btn btn-primary" name="tambah" value="Tambah"><br><br>
-                  <label for="check-all">
-                    <a class="btn btn-primary" style="color: white;" >Select All</a>
-                  </label>
+                  
                   <label for="delete">
                     <a class="btn btn-danger" style="color: white;">Delete</a>
                   </label>
@@ -100,20 +98,27 @@ header('location: ../login.html');
             $storeid=$_SESSION['store_id'];
             $sql= "SELECT * FROM promo WHERE store_id='$storeid'";
             $result = mysqli_query($db, $sql);
+            echo "<form method='post' action='../server/promo-server.php'>";
             while ($row=mysqli_fetch_array($result)) {
-            
-            
             echo "
-            <div  style='border: 4px solid #dedcdc; border-radius: 5px; margin: 20px 0px 0px 20px;'>
-              <img id='image-menu' src='../images/diskon/".$row['image_promo']."' alt='' >
-            </div>";
+            <label for='cek".$row['id_promo']."' >
+            <div id='".$row['id_promo']."' onclick='select(".$row['id_promo'].")' style='border: 6px solid #dedcdc; border-radius: 5px; margin: 20px 0px 0px 20px;'>
+              <img for='cek' id='image-menu' src='../images/diskon/".$row['image_promo']."' alt='' >
+            </div>
+            </label>
+
+              <input style='display:none;' id='cek".$row['id_promo']."' type='checkbox' name='check[]' value='".$row['id_promo']."'>";
+              echo "<input id='delete' onclick=\"return confirm('Kamu Yakin Ingin Menghapusnya')\" type='submit' name='delete' value='delete'>";
             }
+             
+            echo "</form>";
             ?>
           </div>
         </div>
         </div>
       </div>
-     
+
+      
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
@@ -124,6 +129,19 @@ header('location: ../login.html');
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="check.js"></script>
+    <script src="../check.js"></script>
+    <script type="text/javascript">
+        function select(x) {
+          //alert(x);
+         var str1 =document.getElementById(x).style.borderColor;
+         var str2 = 'rgb(222, 220, 220)';
+         if (str1.localeCompare(str2)==0) {
+            document.getElementById(x).style.border="6px solid #2190dd";
+         } else {
+            document.getElementById(x).style.border="6px solid #dedcdc";
+         }
+        }
+     </script>
+     
   </body>
 </html>
