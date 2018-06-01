@@ -1,3 +1,11 @@
+<?php
+  include('login.php'); 
+    if (empty($_SESSION['username'])) {
+        header('location: login.html');
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,34 +29,51 @@
   <body >
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
           <img id='image-logo' src="images/logo/BoxRate.png">
-        BoxRate</a>
+          <a class="user-login" style="color: white; font-family: times new romans;"><?php if (isset($_SESSION["store"])): ?>
+                  <?php  echo $_SESSION['store'];?>
+                   <?php endif ?>
+
+                <?php if (isset($_SESSION["username"]) and $_SESSION['name']==NULL): ?>
+                  <?php  echo $_SESSION['username'];?>
+                   <?php endif ?></a> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="font-family: times new romans;">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.php">Home
-                <span class="sr-only">(current)</span>
+              <a class="nav-link" href="index.php">Beranda
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Tentang</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Tanggapan</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item" >
-              <a class="nav-link" href="index.php?logout='1'">Logout</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php#footer">Kontak</a>
             </li>
           </ul>
+          <div class="dropdown">
+              <label data-toggle='dropdown'>
+                <img id='image-user' src="images/user.png">
+              </label>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" style="text-transform: capitalize;" href=""> <?php if (isset($_SESSION["name"])): ?>
+                  <?php  echo $_SESSION['name'];?>
+                   <?php endif ?></a></li>
+              <li class="dropdown-divider"></li>
+              <li><a href="" class="dropdown-item">Bantuan ?</a></li>
+              <li><a class="dropdown-item" href="">Pengaturan</a></li>
+               <li class="dropdown-divider"></li>
+              <li ><a class="dropdown-item" href="index.php?logout='1'">Keluar</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
@@ -62,13 +87,13 @@
 
           <h1 class="my-4">Menu</h1>
           <div class="list-group">
-            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp; Makanan</a>
-            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
+            <a href="menu-makanan.php" class="list-group-item">&emsp;&nbsp;Makanan</a>
+            <a href="menu-minuman.php" class="list-group-item">&emsp;&nbsp;Minuman</a>
             <div class="dropdown">
-            <a href="#" class="list-group-item dropdown-toggle" data-toggle="dropdown">&#x27a4; Edit Menu</a>
-            <ul class="dropdown-menu">
-              <li><a href="#" class="list-drop">&emsp;&oplus; Edit Makanan</a></li>
-              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp; Edit Minuman</a></li>
+            <a href="#" class="list-group-item" data-toggle="dropdown">&#x27a4; Edit Menu</a>
+            <ul class="dropdown-content">
+              <li><a href="#" class="list-drop">&#x27a4;&emsp;Edit Makanan</a></li>
+              <li><a href="edit-minuman.php" class="list-drop">&emsp;&emsp;Edit Minuman</a></li>
             </ul>
           </div>
 
@@ -95,6 +120,7 @@
           <div class="form-group">
             <textarea class="form-control" name="description" placeholder="deskripsi" rows='2' cols='30' form="menu-form"></textarea>
           </div>
+            <input style="display: none;" type="number" name="store_id" value="<?php echo $_SESSION['store_id'] ?>">
             <input class="btn btn-secondary btn-upload" type="submit" name="upload" value="upload">
          </form>
        </div>
@@ -112,7 +138,52 @@
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='makanan'";
+           $storeid=$_SESSION['store_id'];
+           $sql= "SELECT * FROM menu WHERE ket='makanan' and store_id='$storeid'";
+              $result = mysqli_query($db, $sql);
+              while ($row=mysqli_fetch_array($result)) {
+              echo '<form id="edit_form" method="post" action="server/edit-makanan.php" enctype="multipart/form-data">
+                <div class="modal fade" id="editModal'.$row["id"].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Edit Makanan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group">
+                          <label >Gambar Minuman</label>
+                          <input class="form-control" type="file" name="image">
+                          <input style="display: none;" type="text" name="image_name" value="'.$row['image'].'">
+                        </div>
+                        <div class="form-group">
+                          <label>Edit Nama</label>
+                          <input class="form-control" type="text" name="text" value="'.$row['name'].'">
+                        </div>
+                        <div class="form-group">
+                          <label>Harga Rp.</label>
+                          <input class="form-control" type="number" name="price" value="'.$row['price'].'">
+                        </div>
+                        <div class="form-group">
+                          <label>Deskripsi</label>
+                          <input class="form-control" type="text" name="desc" value="'.$row['description'].'">
+                        </div>
+                        <input style="display: none;" type="number" name="id_menu" value="'.$row['id'].'">
+                        <input style="display: none;" type="number" name="store_id" value="'.$_SESSION['store_id'].'">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <input type="submit" name="edit" class="btn btn-primary" value="Save changes">
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </form>';
+            }
+           $sql= "SELECT * FROM menu WHERE ket='makanan' and store_id='$storeid'";
            $result = mysqli_query($db, $sql);
             echo "<form class='row' method='post' action='server/server-makanan.php'>";
            while ($row=mysqli_fetch_array($result)) {
@@ -127,7 +198,7 @@
                   <p class='card-text'>".$row['description']."</p>
                 </div>
                 <div class='card-footer'>
-                  <small class='text-muted'>&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                   <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#editModal".$row['id']."'> Edit Menu </button>
                   <input class='form-check-input' type='checkbox' name='check[]' value='".$row['id']."'>
                 </div>";
               echo "<input id='delete' onclick=\"return confirm('Kamu Yakin Ingin Menghapusnya')\" type='submit' name='delete' value='delete'>";

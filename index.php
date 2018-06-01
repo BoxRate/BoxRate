@@ -17,6 +17,8 @@
 
   <head>
 
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -29,7 +31,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/shop-homepage.css" rel="stylesheet">
-	<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+	  <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
   </head>
 
   <body >
@@ -39,7 +41,7 @@
       <div class="container">
         <a class="navbar-brand" href="#">
           <img id='image-logo' src="images/logo/BoxRate.png">
-        BoxRate : <a class="user-login" style="color: white;"><?php if (isset($_SESSION["store"])): ?>
+          <a class="user-login" style="color: white; font-family: times new romans;"><?php if (isset($_SESSION["store"])): ?>
                   <?php  echo $_SESSION['store'];?>
                    <?php endif ?>
 
@@ -49,33 +51,44 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="font-family: times new romans;">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
+              <a class="nav-link" href="#">Beranda
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#footer">Tentang</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#footer">Tanggapan</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item" >
-              <a class="nav-link" href="index.php?logout='1'">Logout</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="#footer">Kontak</a>
             </li>
           </ul>
+          <div class="dropdown">
+              <label data-toggle='dropdown'>
+                <img id='image-user' src="images/user.png">
+              </label>
+            <ul class="dropdown-menu">
+              <li><a style="text-transform: capitalize;" href=""> <?php if (isset($_SESSION["name"])): ?>
+                  <?php  echo $_SESSION['name'];?>
+                   <?php endif ?></a></li>
+              <li class="divider"></li>
+              <li><a href="">Bantuan ?</a></li>
+              <li><a href="">Pengaturan</a></li>
+               <li class="divider"></li>
+              <li ><a href="index.php?logout='1'">Keluar</a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </nav>
 
 
-     <header class="slide-color">
-       <div class="slide">
+     <header id="slide-color">
+       <div id="slide">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -135,18 +148,18 @@
               <p class="card-text">Ayo Tentukan Makanan dan Minuman Kesukaan Pelanggan Disini !! <br>Kami akan menghitungnya untukmu</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Masuk</a>
+              <a href="isi%20rating/input-pesanan.php" class="btn btn-primary">Masuk</a>
             </div>
           </div>
         </div>
          <div class="col-lg-4 mb-4">
           <div class="card h-100">
-            <h4 class="card-header">Diskon</h4>
+            <h4 class="card-header">Promo</h4>
             <div class="card-body">
-              <p class="card-text">Ayo Lihat Promo Yang Menarik Disini</p>
+              <p class="card-text">Ayo Tambah Promomu buat pelangganmu terkesan</p>
             </div>
             <div class="card-footer">
-              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+              <a href="promo/isi-diskon.php" class="btn btn-primary">Masuk</a>
             </div>
           </div>
         </div>
@@ -157,7 +170,7 @@
               <p class="card-text">Lihat Semua Rating Yang Terdaftar</p>
             </div>
             <div class="card-footer">
-              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+              <a href="glob-rate-makanan.php" class="btn btn-primary">Masuk</a>
             </div>
           </div>
         </div>
@@ -252,6 +265,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
   </body>
 

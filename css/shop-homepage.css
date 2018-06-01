@@ -5,28 +5,32 @@ body {
 }
 
 
+
+#image-user {
+	margin-left: 30px;
+	width: 40px;
+	height: auto;
+}
 #image-logo {
 	width: 50px;
 	height: 50px;
 }
-
 #image-menu{
 	margin-left: 2px;
 	width: 250px ;
 	height: 200px;
 }
-
 #image-rating {
 	margin-left: 2px;
 	width: 390px ;
 	height: 250px;
 }
-
 #image-promo {
 	margin: 0 auto;
-	width: 900px;
-	height: 350px;
+	width: 820px;
+	height: 400px;
 }
+
 
 .container-form{
 	border: 1px solid #dedcdc;
@@ -34,9 +38,18 @@ body {
 	margin: 20px 0px 30px 5px;
 }
 
+
 #menu-form {
 	padding: 20px;
 }
+.form-jumlah {
+	border-radius: 10px;
+	width: 20px;
+	background-color: red;
+}
+
+
+
 
 @media (min-width: 992px) {
   body {
@@ -45,8 +58,7 @@ body {
 }
 
 .list-drop {
-	margin-left: 30px; 
-	margin-top: 30px;
+	margin-top: 10px;
 }
 
 .list-drop:hover {
@@ -61,13 +73,15 @@ body {
 .btn-upload{
 	margin: 0 0 0 700px;
 }
-
-.btn-upload:hover{
-	background-color: #1a49e1;
+.btn-upload:hover, .btn-pesan:hover{
+	background-color: #3baef0;
+}
+.btn-pesan {
+	margin: 30px 0 0 700px;
 }
 
 .form-check-input {
-	margin: 5px 0 0 140px;
+	margin: 10px 0 0 100px;
 }
 
 #check-all {
@@ -85,6 +99,7 @@ body {
 .mb-4 {
 	margin-top: 80px;
 }
+
 
 /*Checked*/
 .checked {
@@ -104,24 +119,53 @@ body {
 }
 
 /*Slide curaousel*/
-.slide {
+#slide {
 	margin: 80px 60px 0 60px;
 }
 
-.slide-color {
+#slide-color {
 	margin: 0 0 0 0;
 	height: 620px;
 	background-color: #f0f0f0;
 }
 
 @media screen and (max-width:900px){
-	.slide {
+	#slide {
 		margin: 80px 0 0 0;
 	}
 }
 
 @media screen and (max-width:344px){
-	.slide {
+	#slide {
 		margin: 110px 0 0 0;
 	}
 }
+
+#akun {
+	display: ;
+}
+
+
+/* dropdown*/
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 255px;
+    border: 1px solid #e5e5e5;
+    z-index: 1;
+}
+
+.dropdown-content li {
+    padding: 6px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
