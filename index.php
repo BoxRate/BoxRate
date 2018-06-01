@@ -207,7 +207,7 @@
               <p class="card-text">Pengaturan dari Akun Sampai Tampilan Mu</p>
             </div>
             <div class="card-footer">
-              <a href="menu-makanan.php" class="btn btn-primary">Masuk</a>
+              <a href="setting.php" class="btn btn-primary">Masuk</a>
             </div>
           </div>
         </div>
