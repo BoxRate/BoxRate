@@ -77,7 +77,7 @@
                    <?php endif ?></a></li>
               <li class="divider"></li>
               <li><a href="">Bantuan ?</a></li>
-              <li><a href="">Pengaturan</a></li>
+              <li><a href="setting.php">Pengaturan</a></li>
                <li class="divider"></li>
               <li ><a href="index.php?logout='1'">Keluar</a></li>
             </ul>
