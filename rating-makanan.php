@@ -1,3 +1,12 @@
+<?php
+  include('login.php'); 
+    if (empty($_SESSION['username'])) {
+        header('location: login.html');
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,50 +76,46 @@
           <div class="list-group">
             <a href="rating-makanan.php" class="list-group-item">&#x27a4;&nbsp; Makanan</a>
             <a href="rating-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
+              <form method="post" action="rating-makanan.php">
+                <div class="form-group">
+                  <label class="list-group-item" for="sel1">Urut Berdasarkan</label>
+                  <select class="form-control" id="sel1" name="urut">
+                    <if ><?php $urut=1; ?>
+                    <option value="1">Rating</option>
+                    <option <?php error_reporting(0); if($_POST['urut']==2) {echo 'selected="selected"';} ?> value="2">Nama</option>
+                    <option <?php error_reporting(0); if($_POST['urut']==3) {echo 'selected="selected"';} ?> value="3">Harga</option>
+                  </select>
+                </div>
+                <input class="btn " type="submit" name="urutkan" value="urutkan">
+              </form>
           </div>
-         </br>
-        </div>
+         </div>
         <!-- /.col-lg-3 -->
-
+        <div class="col-lg-9">
+         
+         <div class="row" style="margin-top: 70px;">
      
-               <div class="container">
-          <div class="row">
-     <div class="col-sm-4" style="background-color:#DCDCDC;">
-      
-	   <div class="dropdown">
-    <a href="#" data-toggle="dropdown"><p align="center">harga<b class="caret"></p></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="kecilbesarmakanan.php">Rendah ke Tinggi</a></li>
-        <li><a href="besarkecilmakanan">Tinggi ke Rendah</a></li>
-    </ul>
-    </div>
-	</div>
-    <div class="col-sm-4" style="background-color:#DCDCDC;">
-	<div class="dropdown">
-    <a href="#" data-toggle="dropdown"><p align="center">terlaris<b class="caret"></p></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">Hari ini</a></li>
-        <li><a href="#">Minggu lalu</a></li>
-    </ul>
-   </div>
-   </div>
-   <div class="col-sm-4" style="background-color:#DCDCDC;">
-   <div class="dropdown">
-    <a href="#" data-toggle="dropdown"><p align="center">kategori<b class="caret"></p></b></a>
-    <ul class="dropdown-menu">
-        <li><a href="#">harian</a></li>
-        <li><a href="#">mingguan</a></li>
-		<li><a href="#">bulanan</a></li>
-    </ul>
-</div>
- </div>
-  </div>
-    </div>
-
 
         <?php
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $sql= "SELECT * FROM menu WHERE ket='makanan' order by rating DESC";
+           $storeid=$_SESSION['store_id'];
+
+           if(isset($_POST["urutkan"])){
+              $urut = mysqli_real_escape_string($db,$_POST["urut"]);
+            }
+           $storeid=$_SESSION['store_id'];
+           
+           
+           if ($urut ==1) {
+            $sql= "SELECT * FROM menu WHERE ket='makanan' and store_id='$storeid' order by rating desc";
+           }
+           if ($urut ==2) {
+            $sql= "SELECT * FROM menu WHERE ket='makanan' and store_id='$storeid' order by name";
+           }
+           if ($urut ==3) {
+            $sql= "SELECT * FROM menu WHERE ket='makanan' and store_id='$storeid' order by price";
+           }
+
            $result = mysqli_query($db, $sql);
            while ($row=mysqli_fetch_array($result)) {
             echo "<div class='col-md-6 my-4'>
@@ -155,6 +160,13 @@
                 }
                 elseif($row['rating']>0) {
                   echo "<span class='fa fa-star checked'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>
+                  <span class='fa fa-star'></span>";
+                }
+                else {
+                  echo "<span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
                   <span class='fa fa-star'></span>
