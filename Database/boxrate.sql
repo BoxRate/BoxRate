@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jun 2018 pada 10.43
--- Versi server: 10.1.30-MariaDB
--- Versi PHP: 7.2.2
+-- Generation Time: May 23, 2018 at 10:00 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -68,15 +68,12 @@ CREATE TABLE `menu` (
 -- Dumping data untuk tabel `menu`
 --
 
-INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `rating`, `description`, `store_id`) VALUES
-(30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 65.63, 'Nasi Uduk dengan ayam dan nasi yang dimasak dengan bumbu khusus dari aceh', 2),
-(32, 'b375d211f9.jpg', 10000, 'aneka', 'minuman', 82.61, 'Campuran dari berbagai buah yang menciptakan rasa yang unik', 2),
-(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', 100, 'Nasi bebek khas jawa dengan bebek betina yang menjadi daging utama', 2),
-(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', 100, 'jus yang terbuat dari mangga yang segar dipetik langsung dari kebun', 2),
-(48, '52fd0ac6df.jpg', 20000, 'Nasi Uduk', 'makanan', 0, 'andika', 3),
-(54, '0056d4e286.jpg', 100, 'tes', 'minuman', 0, 'asasa', 2),
-(55, 'faf3fab07c.jpg', 112212, 'ted', 'makanan', 0, 'xsxasda', 2),
-(56, '3fc3564193.jpg', 100000, 'adadadadadadeaddead', 'makanan', 0, 'adaddsdadaededadeadaeddaedadfafafafaffaddafafaaddadededadedadadeadadeedadfaefefaeffeafeafaefeafeafefeafaefefeafeafeafe', 2);
+INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `description`, `rating`, `store_id`) VALUES
+(30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 'Nasi Uduk dengan ayam dan nasi yang dimasak dengan bumbu khusus dari aceh', 60, 2),
+(32, 'b81206e87f.jpg', 10000, 'aneka', 'minuman', 'Campura dari berbagia buah yang menciptakan rasa yang unik', 70, 2),
+(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', 'Nasi bebek khas jawa dengan bebek betina yang menjadi dagimg utama', 93, 2),
+(40, '8036ec9ca6.jpg', 20000, 'Tumpeng', 'makanan', 'Tumpeng yang dibuat khusus dengan harga terjangkau', 76, 2),
+(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', 'jus yang terbuat dari mangga yang segar dipetik langsung dari kebun', 79, 2);
 
 --
 -- Trigger `menu`
@@ -107,19 +104,16 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`id_menu`, `id_store`, `jumlah`) VALUES
-(30, 2, 21),
-(32, 2, 19),
-(33, 2, 32),
-(41, 2, 23),
-(48, 3, 0),
-(54, 2, 0),
-(55, 2, 0),
-(56, 2, 0);
+(30, 2, 5),
+(32, 2, 16),
+(33, 2, 5),
+(40, 2, 7),
+(41, 2, 10);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `promo`
+-- Table structure for table `store`
 --
 
 CREATE TABLE `promo` (
@@ -185,7 +179,7 @@ ALTER TABLE `pesanan`
   ADD KEY `store_idfk` (`id_store`);
 
 --
--- Indeks untuk tabel `promo`
+-- Indexes for table `store`
 --
 ALTER TABLE `promo`
   ADD PRIMARY KEY (`id_promo`);
@@ -205,10 +199,10 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT untuk tabel `promo`
+-- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `promo`
   MODIFY `id_promo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
@@ -246,3 +240,28 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- Waktu pembuatan: 01 Jun 2018 pada 10.43
+-- Versi server: 10.1.30-MariaDB
+-- Versi PHP: 7.2.2
+INSERT INTO `menu` (`id`, `image`, `price`, `name`, `ket`, `rating`, `description`, `store_id`) VALUES
+(30, '53e724d8e7.jpg', 15000, 'Nasi uduk', 'makanan', 65.63, 'Nasi Uduk dengan ayam dan nasi yang dimasak dengan bumbu khusus dari aceh', 2),
+(32, 'b375d211f9.jpg', 10000, 'aneka', 'minuman', 82.61, 'Campuran dari berbagai buah yang menciptakan rasa yang unik', 2),
+(33, '9052e899e1.jpg', 10000, 'Nasi Bebek', 'makanan', 100, 'Nasi bebek khas jawa dengan bebek betina yang menjadi daging utama', 2),
+(41, '1a6bb35d60.jpg', 10000, 'jus mangga', 'minuman', 100, 'jus yang terbuat dari mangga yang segar dipetik langsung dari kebun', 2),
+(48, '52fd0ac6df.jpg', 20000, 'Nasi Uduk', 'makanan', 0, 'andika', 3),
+(54, '0056d4e286.jpg', 100, 'tes', 'minuman', 0, 'asasa', 2),
+(55, 'faf3fab07c.jpg', 112212, 'ted', 'makanan', 0, 'xsxasda', 2),
+(56, '3fc3564193.jpg', 100000, 'adadadadadadeaddead', 'makanan', 0, 'adaddsdadaededadeadaeddaedadfafafafaffaddafafaaddadededadedadadeadadeedadfaefefaeffeafeafaefeafeafefeafaefefeafeafeafe', 2);
+(30, 2, 21),
+(32, 2, 19),
+(33, 2, 32),
+(41, 2, 23),
+(48, 3, 0),
+(54, 2, 0),
+(55, 2, 0),
+(56, 2, 0);
+-- Struktur dari tabel `promo`
+-- Indeks untuk tabel `promo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+-- AUTO_INCREMENT untuk tabel `promo`
