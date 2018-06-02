@@ -27,6 +27,26 @@
     <!-- Star Rating-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <style>
+      .asa {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 16px;
+    margin-top: 32px;
+}
+    </style>
+
   </head>
 
   <body >
@@ -94,7 +114,7 @@
            $result = mysqli_query($db, $sql);
            $row=mysqli_fetch_array($result); 
             echo "<div class='col-md-6 my-4'>
-              <div class='card h-100'>
+              <div class='asa'>
                 <form action='formulir.html' method='get' target='_blank'>
                   Nama      <input type='text' name='name' placeholder='".row['name']."'/></br>
                   Username  <input type='text' name='username' /></br>

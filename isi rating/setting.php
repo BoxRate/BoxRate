@@ -73,8 +73,8 @@
 
           <h1 class="my-4">Global Rating</h1>
           <div class="list-group">
-            <a href="#" class="list-group-item">&#x27a4;&nbsp; Edit Profile</a>
-            <a href="#" class="list-group-item">&emsp;&nbsp; Change Password</a>
+            <a href="#" class="list-group-item">&#x27a4;&nbsp; Makanan</a>
+            <a href="glob-rate-minuman.php" class="list-group-item">&emsp;&nbsp; Minuman</a>
           </div>
 
         </div>
@@ -87,33 +87,28 @@
 
 
         <?php
-          error_reporting(0);
            $db = mysqli_connect("localhost", "root", "", "boxrate");
-           $as=$_SESSION['username'];
-           $sql= "SELECT * FROM akun where username=$as";
+           $sql= "SELECT * FROM menu WHERE ket='makanan' order by rating DESC";
            $result = mysqli_query($db, $sql);
-           $row=mysqli_fetch_array($result); 
+           while ($row=mysqli_fetch_array($result)) {
+             $store_id=$row['store_id'];
+             $query= "SELECT * FROM store WHERE store_id='$store_id'";
+             $hasil = mysqli_query($db, $query);
+           while ($store=mysqli_fetch_array($hasil)) {
+              $toko=$store['store_name'];
+           }
             echo "<div class='col-md-6 my-4'>
               <div class='card h-100'>
                 <form action='formulir.html' method='get' target='_blank'>
-                  Nama      <input type='text' name='name' placeholder='".row['name']."'/></br>
-                  Username  <input type='text' name='username' /></br>
-                  Website   <input type='text' name='website' /></br>
-                  Bio   <textarea name='komentar' rows='5' cols='20'></textarea> </br>
+                  Nama      :<input type='text' name='username' value='nama kamu'/></br>
+
                   
-                  <p style='color:brown;'>Private Information</p>
-
-                  Email         <input type='text' name='email' /></br>
-                  Phone Number  <input type='text' name='phone_number' /></br>
-                  Gender        <input type='radio' name='jenis_kelamin' value='laki-laki' checked> Male
-                                <input type='radio' name='jenis_kelamin' value='perempuan' checked> Female
-                                </br>
-
                   <input type='submit' value='Selesai' />
                 </form>
               </div>
               </div>
             </div>";
+          }
           ?>
           </div>
           <!-- /.row -->
