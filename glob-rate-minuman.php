@@ -86,7 +86,7 @@
 
       <div class="row">
 
-        <div class="col-lg-3">
+        <div class="col-lg-3 mb-4">
 
           <h1 class="my-4">Global Rating</h1>
           <div class="list-group">
